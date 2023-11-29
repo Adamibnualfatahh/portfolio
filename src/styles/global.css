@@ -12,10 +12,11 @@
 }
 @font-face {
   font-family: "Basement";
+  src: url("../fonts/BSBlack.eot");
   src: url("public/fonts/BSBlack.eot");
-  src: url("public/fonts/BSBlack.eot?#iefix") format("embedded-opentype"),
-    url("public/fonts/BSBlack.woff2") format("woff2"),
-    url("public/fonts/BSBlack.woff") format("woff");
+  src: url("../fonts/BSBlack.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/BSBlack.woff2") format("woff2"),
+    url("../fonts/BSBlack.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   descent-override: 0%;
