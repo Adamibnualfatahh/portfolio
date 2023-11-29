@@ -1,0 +1,58 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Disqus from "../components/global/Disqus.astro";
+export interface Props {
+    content: {
+        title: string;
+        description: string;
+        publishDate?: string;
+        updatedDate?: string;
+        heroImage?: string;
+        author?: string;
+        tags?: string[];
+        readDuration?: string;
+    };
+}
+
+const {
+    content: { title, description, publishDate, updatedDate, heroImage, author, tags,readDuration },
+} = Astro.props as Props;
+
+const assets = await Astro.glob('../assets/**/*');
+const heroImageAsset = assets.find(asset => {
+    if (!heroImage) {
+        return false;
+    }
+    if (!asset.default?.src) {
+        return false;
+    }
+    const index = asset.default.src.indexOf('/assets/');
+    return asset.default.src.slice(index) === heroImage;
+});
+---
+
+<BaseLayout>
+    <section class="border-white border-e border-l">
+    <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-black prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
+            <img src={heroImage} alt={heroImage} class="rounded-sm" />
+            <div class="flex flex-col sm:flex-row justify-between items-center -mt-4 sm:-mt-10 mb-4 sm:mb-0">
+                <p class="font-light text-sm sm:text-base mb-2 sm:mb-0">{publishDate} ・ {readDuration ? readDuration : '0'} minute(s) read</p>
+                <p class="font-light text-right">{author['name']}</p>
+            </div>
+            <div class="sm:py-2">
+                <p class="font-bold text-3xl mt-2">{title}</p>
+                <p class="-mt-2 text-gray-500">{description}</p>
+                <div class="flex flex-wrap gap-3 mt-4 -mb-2">
+                    {tags?.map((tag, index) => (
+                            <span key={index} class="rounded py-1 px-2 text-xs capitalize duration-300 bg-gray-300 text-black">{tag}</span>
+                    ))}
+                </div>
+                <hr>
+                <slot/>
+            </div>
+        </div>
+
+        <Disqus/>
+    </section>
+</BaseLayout>
+

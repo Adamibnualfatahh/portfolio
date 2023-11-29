@@ -1,0 +1,18 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Navigation from "@/components/global/Navigation.astro";
+import Footer from "@/components/global/Footer.astro";
+---
+<!DOCTYPE html>
+<html lang="en" class="selection:bg-carrot selection:text-white">
+  <head>
+    <meta charset="UTF-8">
+    <BaseHead />
+    <title>Adam Ibnu</title>
+  </head>
+  <body class="mx-auto bg-black 2xl:max-w-7xl">
+    <Navigation />
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+/* CSS */
+:root { font-family: 'Helvetica', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Helvetica var', sans-serif; }
+}
+@font-face {
+  font-family: "Basement";
+  src: url("public/fonts/BSBlack.eot");
+  src: url("public/fonts/BSBlack.eot?#iefix") format("embedded-opentype"),
+    url("public/fonts/BSBlack.woff2") format("woff2"),
+    url("public/fonts/BSBlack.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  descent-override: 0%;
+}
+.gradient-grid  {
+
+background-image: radial-gradient(circle at center center, transparent 0%,rgba(255,255,255, 0) 99%),repeating-linear-gradient(0deg, rgba(205,205,205, 0.2) 0px, rgba(205,205,205, 0.2) 1px,transparent 1px, transparent 6px),repeating-linear-gradient(90deg, rgba(205,205,205, 0.2) 0px, rgba(205,205,205, 0.2) 1px,transparent 1px, transparent 6px),linear-gradient(90deg, rgba(255,255,255, 0),rgba(255,255,255, 0));
+}
+
+/*.splide__pagination {
+  visibility: hidden;
+}*/

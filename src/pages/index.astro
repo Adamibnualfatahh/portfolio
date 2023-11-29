@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/landing/Hero.astro";
+import { AstroSeo } from "@astrolib/seo";
+---
+<AstroSeo
+  title="Adam Ibnu Alfatah"
+  description="Adam Ibnu Alfatah is a Backend Developer"
+  canonical="https://www.adamibnu.com"
+  openGraph={{
+    url: "https://www.adamibnu.com",
+    title: "Adam Ibnu Alfatah",
+    description: "Adam Ibnu Alfatah is a Backend Developer",
+    site_name: "Adam Ibnu Alfatah",
+  }}
+  icon={{
+    src: "https://picsum.photos/200/300",
+    sizes: "16x16",
+    type: "image/x-icon",
+    purpose: "any maskable"
+  }}
+/>
+<BaseLayout>
+  <Hero />
+</BaseLayout>
