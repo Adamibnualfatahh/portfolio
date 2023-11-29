@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: Fourth post
 description: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem.
 publishDate: Jul 08 2022
-heroImage: ../assets/placeholder-hero.jpg
+heroImage: ../placeholder-hero.jpg
 author:
   name: Adam Ibnu Alfatah
 ---
