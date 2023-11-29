@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: Exploring the Wonders of macOS
 description: Discover the features and magic of macOS that make it a favorite among users for creativity and productivity.
 publishDate: Nov 30 2023
-heroImage: /placeholder-about.jpg
+heroImage:  /assets/placeholder-hero.jpg
 author:
   name: Adam Ibnu Alfatah
 tags:
