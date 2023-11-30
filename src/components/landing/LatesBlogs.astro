@@ -17,8 +17,8 @@ const posts = await Astro.glob('/src/pages/blog/*.{md,mdx}');
                 {post.frontmatter.description}
               </p>
               <div class="flex flex-col justify-between mt-3 border-white border-l border-e px-2 mb-2 bg-opacity-10 bg-white hover:border-carrot">
-                <span class="block font-semibold mt-3 text-carrot">{post.frontmatter.title}</span>
-                <span class="block text-eagle">{post.frontmatter.author.name}</span>
+                <span class="block font-semibold mt-1 text-carrot">{post.frontmatter.title}</span>
+                <span class="block text-eagle mb-1">{post.frontmatter.author.name}</span>
               </div>
             </a>
           </div>
