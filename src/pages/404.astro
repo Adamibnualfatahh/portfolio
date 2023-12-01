@@ -1,7 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Error404 from "../components/infopages/Error404.astro";
+import {AstroSeo} from "@astrolib/seo";
 ---
+<AstroSeo
+        title="Adam Ibnu | 404"
+        description="Adam Ibnu Alfatah is a Backend Developer"
+        canonical="https://adamibnu.com"
+        openGraph={{
+            url: "https://adamibnu.com",
+            title: "Adam Ibnu Alfatah",
+            description: "Adam Ibnu Alfatah is a Backend Developer",
+            site_name: "Adam Ibnu Alfatah",
+        }}
+/>
 <BaseLayout>
     <Error404/>
 </BaseLayout>

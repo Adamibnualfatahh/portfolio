@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Disqus from "../components/global/Disqus.astro";
+import {AstroSeo} from "@astrolib/seo";
+export const prerender = true;
+
 export interface Props {
     content: {
         title: string;
@@ -30,7 +33,17 @@ const heroImageAsset = assets.find(asset => {
     return asset.default.src.slice(index) === heroImage;
 });
 ---
-
+<AstroSeo
+        title={`Adam Ibnu | ${title}`}
+        description="Adam Ibnu Alfatah is a Backend Developer"
+        canonical="https://adamibnu.com"
+        openGraph={{
+            url: "https://adamibnu.com",
+            title: "Adam Ibnu Alfatah",
+            description: "Adam Ibnu Alfatah is a Backend Developer",
+            site_name: "Adam Ibnu Alfatah",
+        }}
+/>
 <BaseLayout>
     <section class="border-white border-e border-l">
     <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-black prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
