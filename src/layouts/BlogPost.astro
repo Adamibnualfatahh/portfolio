@@ -14,11 +14,12 @@ export interface Props {
         author?: string;
         tags?: string[];
         readDuration?: string;
+        slug?: string;
     };
 }
 
 const {
-    content: { title, description, publishDate, updatedDate, heroImage, author, tags,readDuration },
+    content: { title, description, publishDate, updatedDate, heroImage, author, tags,readDuration, slug },
 } = Astro.props as Props;
 
 const assets = await Astro.glob('../assets/**/*');
@@ -36,7 +37,7 @@ const heroImageAsset = assets.find(asset => {
 <AstroSeo
         title={`Adam Ibnu | ${title}`}
         description="Backend Developer with over 2 years of experience. Specializing in crafting robust backend systems and APIs."
-        canonical="https://www.adamibnu.com"
+        canonical={`https://www.adamibnu.com/blog/${slug}`}
         openGraph={{
             url: "https://www.adamibnu.com",
             title: "Adam Ibnu Alfatah",

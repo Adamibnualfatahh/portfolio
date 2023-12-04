@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: Done
+slug: done
 description: Closing a chapter with grace and certainty. My journey with her, a story of laughter and tears, has reached its 'DONE.' It's not just an end but a stepping stone to new beginnings. Join me in embracing closure and looking ahead.
 publishDate: Dec 01 2023
 heroImage: ../done.jpeg

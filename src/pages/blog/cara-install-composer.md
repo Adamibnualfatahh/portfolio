@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: Cara Install Composer
+slug: cara-install-composer
 description: Panduan langkah demi langkah tentang cara menginstal Composer pada sistem Anda.
 publishDate: Nov 30 2023
 heroImage: ../composer.webp
