@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   output: 'server',
   adapter: vercel(),
-  site: 'https://adamibnu.com',
+  site: 'https://www.adamibnu.com',
   integrations: [tailwind(), sitemap(), ],
   styles: [
     '@fortawesome/fontawesome-free/css/all.min.css'
