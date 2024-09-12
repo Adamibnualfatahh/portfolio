@@ -9,6 +9,7 @@
 - Astrolib SEO - https://github.com/onwidget/astrolib/tree/main/packages/seo
 ## Template Structure
 
+
 Inside of your Astro project, you'll see the following folders and files:
 
 ```
