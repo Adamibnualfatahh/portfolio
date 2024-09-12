@@ -4,7 +4,7 @@ title: Husstt...
 slug: husstt
 description: Mengenal introvert lebih dalam, melampaui stereotip dan menemukan kekuatan dalam keheningan.
 publishDate: Sep 12 2024
-heroImage: ../husttt.png
+heroImage: ../husstt.png
 author:
   name: Adam Ibnu Alfatah
 ShowReadingTime: true
