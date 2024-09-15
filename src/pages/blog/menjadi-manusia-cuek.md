@@ -39,5 +39,5 @@ Produktivitas itu soal gimana kita mengelola energi dan waktu kita dengan bijak.
 Cuek itu nggak buruk, selama kita bisa memilih kapan dan di mana sikap itu diterapkan. Kita tetap peduli sama orang-orang yang penting buat kita, tetap punya empati, tapi juga tahu kapan harus menarik garis supaya kita bisa tetap fokus dan produktif.
 
 Jadi, buat kamu yang sering merasa kelelahan mental gara-gara terlalu banyak memikirkan hal-hal di luar kendali, coba deh untuk mulai belajar bersikap cuek. Bukan cuek karena nggak peduli, tapi karena kamu tahu apa yang benar-benar perlu diperhatikan, dan apa yang nggak layak buat dicemaskan.
-e
+
 <h2 style="color:white;"> Cheers to the indifferent souls! Cuek yang tepat bisa jadi kunci buat menjaga kesehatan mental dan produktivitas kita. </h2>
