@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/BlogPost.astro
-title: Balancing Hustle: Kerja Sambil Kuliah, Gimana Sih Biar Tetap Waras?
+title: Balancing Hustle dalam Kerja dan Kuliah
 slug: balancing-hustle
 description: Menghadapi tantangan bekerja sambil kuliah dan cara menjaga kesehatan mental serta produktivitas.
 publishDate: Sep 15 2024
