@@ -14,8 +14,7 @@ tags:
   - Self-Improvement
 readDuration: 5
 ---
-
-# Husstt…
+<h2 style="color:white;"> Husstt… </h2>
 
 Hai, kamu! Iya, kamu yang lagi scrolling sambil ngerasa capek sama semua noise di sekitar. Yuk, duduk sebentar, tarik napas dalam, dan… husstt… biarin semuanya hening sejenak.
 
