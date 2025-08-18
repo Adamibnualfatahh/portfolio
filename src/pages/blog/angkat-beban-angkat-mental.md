@@ -19,7 +19,7 @@ readDuration: 6
 
 Dulu, gue pikir nge-gym itu cuma buat orang-orang yang mau gedein badan. Titik. Tujuannya cuma satu: ngebentuk otot, naikin massa tubuh, biar kelihatan lebih "berisi". Pola pikir gue sesederhana itu. Kalau mau sehat, ya lari. Kalau mau kuat, baru ke gym.
 
-Awalnya, gue juga masuk ke gym dengan alasan klasik itu—pengen lebih PD dengan postur tubuh, pengen baju kelihatan lebih pas. Setiap sesi rasanya berat, badan sakit di mana-mana, dan fokusnya cuma soal nuntasin set dan repetisi. Fisik doang yang jadi ukuran.
+Awalnya, gue juga masuk ke gym dengan alasan klasik itu pengen lebih PD dengan postur tubuh, pengen baju kelihatan lebih pas. Setiap sesi rasanya berat, badan sakit di mana-mana, dan fokusnya cuma soal nuntasin set dan repetisi. Fisik doang yang jadi ukuran.
 
 <h2 style="color:white;">Lebih dari Sekadar Fisik</h2>
 
@@ -27,7 +27,7 @@ Tapi makin ke sini, gue sadar ada hal yang lebih berharga dari sekadar lingkar l
 
 Sesuatu itu adalah ketenangan.
 
-Gila sih, ternyata gym jadi tempat meditasi gue. Saat dunia di luar sana terasa berisik—kerjaan numpuk, ekspektasi orang lain, atau sekadar overthinking nggak jelas—di dalam gym, satu-satunya fokus gue cuma beban di tangan. Gimana caranya napas, gimana caranya narik atau ngedorong dengan form yang benar. Semua kebisingan di kepala hilang, dipaksa minggir sama fokus yang terpusat.
+Gila sih, ternyata gym jadi tempat meditasi gue. Saat dunia di luar sana terasa berisik kerjaan numpuk, ekspektasi orang lain, atau sekadar overthinking nggak jelas di dalam gym, satu-satunya fokus gue cuma beban di tangan. Gimana caranya napas, gimana caranya narik atau ngedorong dengan form yang benar. Semua kebisingan di kepala hilang, dipaksa minggir sama fokus yang terpusat.
 
 <h2 style="color:white;">Beban Fisik, Beban Pikiran</h2>
 
