@@ -25,7 +25,7 @@ Awalnya, gue juga masuk ke gym dengan alasan klasik itu—pengen lebih PD dengan
 
 Tapi makin ke sini, gue sadar ada hal yang lebih berharga dari sekadar lingkar lengan yang nambah atau angka timbangan yang naik. Ada sesuatu yang gue dapet setelah latihan, sesuatu yang nggak bisa diukur pakai meteran atau timbangan.
 
-Sesuatu itu adalah <h2 style="color:white;">Ketenangan</h2>
+Sesuatu itu adalah <h3 style="color:white;">Ketenangan</h3>
 
 Gila sih, ternyata gym jadi tempat meditasi gue. Saat dunia di luar sana terasa berisik—kerjaan numpuk, ekspektasi orang lain, atau sekadar overthinking nggak jelas—di dalam gym, satu-satunya fokus gue cuma beban di tangan. Gimana caranya napas, gimana caranya narik atau ngedorong dengan form yang benar. Semua kebisingan di kepala hilang, dipaksa minggir sama fokus yang terpusat.
 
