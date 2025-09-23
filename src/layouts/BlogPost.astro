@@ -26,7 +26,7 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-    timeZone: 'Asia/Jakarta' // WIB timezone
+    timeZone: 'Asia/Jakarta'
 }) : '';
 
 const assets = await Astro.glob('../assets/**/*');
