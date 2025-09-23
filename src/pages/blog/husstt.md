@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: Husstt...
 slug: husstt
 description: Mengenal introvert lebih dalam, melampaui stereotip dan menemukan kekuatan dalam keheningan.
-publishDate: Sep 12 2024
+publishDate: 2024-09-12
 heroImage: ../husstt.png
 author:
   name: Adam Ibnu Alfatah
@@ -14,7 +14,7 @@ tags:
   - Self-Improvement
 readDuration: 5
 ---
-<h2 style="color:white;"> Husstt… </h2>
+## Husstt…
 
 Hai, kamu! Iya, kamu yang lagi scrolling sambil ngerasa capek sama semua noise di sekitar. Yuk, duduk sebentar, tarik napas dalam, dan… husstt… biarin semuanya hening sejenak.
 
@@ -34,4 +34,4 @@ Dan buat kamu yang introvert tapi pengen lebih percaya diri, coba mulai dari hal
 
 Jadi, kapan pun kamu ngerasa overwhelmed sama dunia yang terlalu ribut ini, inget buat husstt… tarik napas, dan inget kamu nggak sendirian. Banyak dari kita yang lebih suka hening daripada hiruk-pikuk. Kita lebih suka obrolan mendalam daripada basa-basi. Dan itu semua nggak bikin kita kurang. Itu bikin kita beda, dan beda itu bagus.
 
-<h2 style="color:white;"> Cheers to the quiet souls. Kita nggak perlu teriak buat didengar. Kita cuma perlu jadi diri kita, dan itu udah cukup. </h2>
+## Cheers to the quiet souls. Kita nggak perlu teriak buat didengar. Kita cuma perlu jadi diri kita, dan itu udah cukup.

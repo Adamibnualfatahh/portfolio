@@ -1,23 +1,55 @@
 ---
 import "../styles/global.css";
 import { AstroSeo } from "@astrolib/seo";
+
+export interface Props {
+	title?: string;
+	description?: string;
+  image?: string;
+}
+
+const { 
+  title = 'Adam Ibnu | Backend Developer',
+  description = 'Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs.',
+  image = '/default.png'
+} = Astro.props;
 ---
 
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Adam Ibnu "
-  description="Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs."
-  canonical="https://www.adamibnu.dev"
+  title={title}
+  description={description}
+  canonical={`https://www.adamibnu.dev${Astro.url.pathname}`}
+  openGraph={{
+    url: Astro.url.href,
+    title: title,
+    description: description,
+    images: [
+      {
+        url: `https://www.adamibnu.dev${image}`,
+        alt: title,
+      },
+    ],
+    site_name: "Adam Ibnu Alfatah",
+    type: "website",
+  }}
+  twitter={{
+    handle: "@adamibnu",
+    site: "@adamibnu",
+    card: "summary_large_image",
+    title: title,
+    description: description,
+    image: `https://www.adamibnu.dev${image}`,
+  }}
 />
-<meta charset>
-<link rel="canonical" href="https://www.adamibnu.dev"/>
-<meta name="viewport" content="width=device-width" />
+<meta charset="UTF-8">
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="author" content="Adam Ibnu Alfatah" />
-<meta name="Adam Ibnu" content="Adam Ibnu Alfatah" />
+
 <meta name="theme-color" content="#50504c"/>
 <meta name="keywords" content="Adam Ibnu, Adam Ibnu Alfatah, Adam, Ibnu, Alfatah"/>
 <meta name="robots" content="index, follow"/>

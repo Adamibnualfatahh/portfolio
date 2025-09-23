@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: Mengenal Apa Itu A.P.I
 slug: mengenal-api
 description: API adalah sekumpulan definisi dan protokol untuk membangun dan mengintegrasikan perangkat lunak aplikasi. API adalah singkatan dari antarmuka pemrograman aplikasi (Application Programming Interface). 
-publishDate: Nov 07 2021
+publishDate: 2021-11-07
 heroImage: ../api.png
 author:
   name: Adam Ibnu Alfatah
@@ -14,16 +14,16 @@ tags:
 readDuration: 6
 ---
 
-# <span class="text-white">Apa Itu API Dan Bagaimana Cara Kerja API?</span>
+# Apa Itu API Dan Bagaimana Cara Kerja API?
 
-<h2 style="color:white;"> Pengertian </h2>
+## Pengertian
 API adalah sekumpulan definisi dan protokol untuk membangun dan mengintegrasikan perangkat lunak aplikasi. API adalah singkatan dari antarmuka pemrograman aplikasi `(Application Programming Interface).` API memungkinkan produk atau layanan Anda berkomunikasi dengan produk dan layanan lain tanpa harus tahu bagaimana penerapannya.
 
 Cara ini dapat menyederhanakan pengembangan aplikasi, menghemat waktu dan uang. Saat Anda merancang alat dan produk baru atau mengelola yang sudah ada, API memberi Anda fleksibilitas dalam menyederhanakan desain, administrasi, penggunaan, serta memberikan peluang untuk inovasi. API juga kadang-kadang dianggap sebagai kontrak, dengan dokumentasi yang mewakili perjanjian antara para pihak.
 
 Contohnya jika pihak 1 mengirim permintaan jarak jauh yang disusun dengan cara tertentu, maka pihak 1 ingin mengetahui bagaimana perangkat lunak pihak 2 akan merespons. Karena API menyederhanakan cara pengembang mengintegrasikan komponen aplikasi baru ke dalam arsitektur yang ada, API mampu membantu bisnis dan tim IT untuk melakukan kolaborasi. Untuk lebih lanjutnya, mari mengenal API dan semua kelebihannya.
 
-<h2 style="color:white;"> Mengenal Apa Itu API (Application Programming Interface) </h2>
+## Mengenal Apa Itu API (Application Programming Interface)
 API didefinisikan sebagai spesifikasi kemungkinan prediksi interaksi dengan komponen perangkat lunak. Sederhananya API bisa dicontohkan sebagai sebuah kendaraan yang berisi komponen perangkat lunak. API akan mencakup informasi tentang apa yang dapat dilakukannya yakni mempercepat, mengerem, menyalakan radio, dan lain- lain. Didalamnya juga mencakup informasi tentang bagaimana Anda dapat membuatnya melakukan hal-hal yang berguna misalnya, untuk mempercepat, menginjak pedal gas dan mendorong.
 
 API tidak perlu menjelaskan apa yang terjadi di dalam mesin ketika Anda menginjakkan kaki di pedal gas. Itu sebabnya, jika Anda belajar mengendarai mobil dengan mesin pembakaran internal, Anda bisa mendapatkan di belakang kemudi mobil listrik tanpa harus belajar keterampilan baru. Informasi apa dan bagaimana berkumpul bersama dalam definisi API, yang abstrak dan terpisah dari mobil itu sendiri. Satu hal yang perlu diingat adalah bahwa nama beberapa API sering digunakan untuk merujuk pada spesifikasi interaksi dan komponen perangkat lunak aktual yang berinteraksi dengan Anda.
@@ -32,7 +32,7 @@ Jadi API adalah antarmuka komputasi yang mendefinisikan interaksi antara beberap
 
 API dapat sepenuhnya berfungsi secara khusus, terutama untuk komponen, atau dapat dirancang berdasarkan standar industri untuk memastikan interoperabilitas. Melalui penyembunyian informasi, API memungkinkan pemrograman modular, yang memungkinkan pengguna untuk menggunakan antarmuka secara terpisah dari implementasinya.
 
-<h2 style="color:white;"> Fungsi API bagi Para Pengembang atau Developer </h2>
+## Fungsi API bagi Para Pengembang atau Developer
 Katakanlah Anda ingin mengembangkan aplikasi untuk iPhone. Sistem operasi Apple iOS menyediakan sejumlah besar API sama seperti halnya semua sistem operasi lainnya untuk mempermudah dapat mempermudah pengembang mereka seperti Anda. Berikut ini beberapa fungsi API yang umum bagi setiap pengembang yang menggunakannya
 
 * Jika Anda ingin menyematkan peramban web untuk menampilkan satu atau beberapa laman web, misalnya, Anda tidak harus memprogram peramban web Anda sendiri dari awal hanya untuk aplikasi Anda. Anda dapat menggunakan WKWebView API untuk menyematkan objek browser WebKit (Safari) di aplikasi Anda.
@@ -42,7 +42,7 @@ Tetapi pengembang sistem operasi Apple telah melakukan semua bagian ini sehingga
 
 Ini berlaku untuk setiap platform. Misalnya, Anda ingin membuat kotak dialog di Windows? Anda juga dapat mengandalkan API. Ingin mendukung otentikasi sidik jari di Android? Anda juga bisa menggunakan API. Jadi Anda tidak perlu menguji sensor sidik jari setiap produsen Android serta pengembang tidak perlu mengulang prosesnya terus menerus.
 
-<h2 style="color:white;"> Jenis API </h2>
+## Jenis API
 Ada tiga jenis API yang paling umum digunakan oleh pengembang aplikasi maupun pemilik bisnis. Ketiganya adalah:
 
 * Private API
@@ -57,7 +57,7 @@ Ada tiga jenis API yang paling umum digunakan oleh pengembang aplikasi maupun pe
 * Composite API
   Dan yang terakhir, merupakan jenis hak akses untuk dapat menyimpan data pada berbagai server di dalam satu tempat saja. Tentunya, dengan menggunakan hak akses ini, memiliki beberapa kemudahan dalam kecepatan dan fleksibilitas akses data, serta menghemat waktu pengguna.
 
-<h2 style="color:white;"> Arsitektur API </h2>
+## Arsitektur API
 Sama seperti bangunan, API juga memiliki unsur pembentuk suatu pondasi agar bangunan yang dibuat dapat bertahan dengan cukup lama. Setidaknya, terdapat tiga macam arsitektur yang sering dipakai pada API.
 
 * RPC (Remote Procedure Call)
@@ -87,7 +87,7 @@ Seperti penjelasan yang sudah tersampaikan, API adalah aplikasi atau antarmuka y
 
 Sedangkan RESTful API adalah REST client yang akan melakukan akses data pada REST server di dalam masing – masing server. Data atau resource tersebut akan dibedakan dalam sebuah URLs atau global ID
 
-<h2 style="color:white;"> Kesimpulan </h2>
+## Kesimpulan
 API adalah suatu aplikasi atau interface yang berfungsi untuk menghubungkan platform satu dengan platform yang lain dengan menggunakan jaringan maupun tidak. Terdapat empat jenis API sesuai hak aksesnya, yaitu private, public, partner, dan composite.
 Manfaat yang dimiliki oleh API adalah mampu untuk mengurangi beban kerja server, menciptakan aplikasi yang fungsional, dan dapat mengembangkan aplikasi secara efektif.
 Terdapat setidaknya tiga arsitektur populer, yaitu RPC, SOAP, dan REST. Banyak sekali contoh penggunaan API, yang paling sering digunakan adalah Google Maps API dan Facebook API.

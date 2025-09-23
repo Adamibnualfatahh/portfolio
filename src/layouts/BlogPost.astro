@@ -22,6 +22,13 @@ const {
     content: { title, description, publishDate, updatedDate, heroImage, author, tags,readDuration, slug },
 } = Astro.props as Props;
 
+const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateString('id-ID', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'Asia/Jakarta' // WIB timezone
+}) : '';
+
 const assets = await Astro.glob('../assets/**/*');
 const heroImageAsset = assets.find(asset => {
     if (!heroImage) {
@@ -34,23 +41,12 @@ const heroImageAsset = assets.find(asset => {
     return asset.default.src.slice(index) === heroImage;
 });
 ---
-<AstroSeo
-        title={`Adam Ibnu | ${title}`}
-        description="Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs."
-        canonical={`https://www.adamibnu.dev/blog/${slug}`}
-        openGraph={{
-            url: "https://www.adamibnu.dev",
-            title: "Adam Ibnu Alfatah",
-            description: "Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs.",
-            site_name: "Adam Ibnu Alfatah",
-        }}
-/>
-<BaseLayout>
+<BaseLayout title={`Adam Ibnu | ${title}`} description={description}>
     <section class="border-white border-e border-l">
-    <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-black prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
-            <img src={heroImage} alt={heroImage} class="rounded-sm min-w-full px-4 sm:px-0" onerror="this.onerror=null; this.src='/default.png'" />
+    <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
+            <img src={heroImage} alt={title} class="rounded-sm min-w-full px-4 sm:px-0" onerror="this.onerror=null; this.src='/default.png'" />
             <div class="flex flex-col sm:flex-row justify-between items-center -mt-4 sm:-mt-10 mb-4 sm:mb-0">
-                <p class="font-light text-sm sm:text-base mb-2 sm:mb-0">{publishDate} {readDuration ? ' | ' + readDuration + ' minute(s) read' : ''}</p>
+                <p class="font-light text-sm sm:text-base mb-2 sm:mb-0">{formattedPublishDate} {readDuration ? ' | ' + readDuration + ' minute(s) read' : ''}</p>
                 <p class="font-light text-right">{author['name']}</p>
             </div>
             <div class="sm:py-2 px-4 sm:px-0">

@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: Validasi Cukup Dari Diri Sendiri
 slug: validasi-diri-sendiri
 description: Belajar melepaskan ketergantungan pada pujian orang lain dan mulai menemukan kekuatan dengan memberi validasi pada diri sendiri.
-publishDate: Aug 18 2025
+publishDate: 2025-08-18
 heroImage: ../validasi-diri.png
 author:
   name: Adam Ibnu Alfatah
@@ -15,13 +15,13 @@ tags:
 readDuration: 6
 ---
 
-<h1 style="color:white;">Validasi Cukup Dari Diri Sendiri</h1>
+# Validasi Cukup Dari Diri Sendiri
 
 Pernah nggak sih lo ngerasa udah kerja keras banget, tapi rasanya hampa cuma karena nggak ada yang muji? Atau mungkin, lo posting sesuatu yang menurut lo keren, terus ngecek HP tiap lima menit cuma buat liat jumlah like-nya nambah apa nggak.
 
 Gue pernah, dan sering banget, ada di posisi itu.
 
-<h2 style="color:white;">Ketergantungan Pada Validasi Eksternal</h2>
+## Ketergantungan Pada Validasi Eksternal
 
 Kita hidup di zaman yang aneh. Kita seakan-akan diajari buat terus-menerus mencari stempel persetujuan dari luar. Pujian dari atasan, comment positif di media sosial, pengakuan dari teman-teman. Rasanya, semua yang kita lakukan baru "sah" kalau ada orang lain yang bilang "iya, itu bagus".
 
@@ -29,7 +29,7 @@ Dulu, gue ngejadiin validasi eksternal ini sebagai bahan bakar utama. Kalau dipu
 
 Hidup dengan cara kayak gitu rasanya kayak ngebangun rumah di atas tanah goyang. Rapuh. Kebahagiaan dan rasa percaya diri kita digantungin ke tangan orang lain, yang bahkan mungkin nggak benar-benar peduli. Kita jadi haus terus-menerus, lari ngejar sesuatu yang nggak pernah benar-benar bisa kita kontrol.
 
-<h2 style="color:white;">Belajar Memberi Validasi Diri Sendiri</h2>
+## Belajar Memberi Validasi Diri Sendiri
 
 Sampai akhirnya gue sadar satu hal penting.
 
@@ -39,13 +39,13 @@ Di titik itulah gue mulai belajar buat validasi diri sendiri. Gue coba buat jadi
 
 Caranya gimana? Sederhana. Setiap selesai ngerjain sesuatu, mau itu tugas besar di kantor atau sekadar berhasil bangun pagi tanpa snooze, gue coba bilang ke diri sendiri: <i>"Good job. Lo udah berusaha keras hari ini."</i>
 
-<h2 style="color:white;">Efeknya ke Mental</h2>
+## Efeknya ke Mental
 
 Kedengarannya sepele, tapi efeknya gila. Gue jadi nggak terlalu butuh lagi pengakuan dari luar. Pujian dari orang lain jadi terasa kayak bonus, bukan hadiah utama. Dan kritik? Jadi masukan yang bisa gue saring, bukan serangan personal yang bikin mental jatuh.
 
 Validasi dari diri sendiri itu bukan berarti kita jadi sombong atau anti-kritik. Justru sebaliknya. Ini tentang membangun fondasi mental yang kuat, jadi kita nggak gampang goyah sama omongan orang. Kita tahu nilai diri kita nggak ditentukan dari jumlah like atau pujian sesaat.
 
-<h2 style="color:white;">Tepuk Tangan dari Dalam</h2>
+## Tepuk Tangan dari Dalam
 
 Pada akhirnya, lo nggak butuh izin dari siapa pun untuk merasa bangga sama perjalanan lo. Lo yang jalanin, lo yang berjuang, lo yang paling tahu ceritanya.
 

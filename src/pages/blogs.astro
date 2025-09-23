@@ -1,19 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LatesBlogs from "../components/landing/LatesBlogs.astro";
-import {AstroSeo} from "@astrolib/seo";
+
+const title = "Blogs | Adam Ibnu";
+const description = "Read the latest articles from Adam Ibnu on backend development, productivity and personal growth.";
 ---
-<AstroSeo
-        title="Adam Ibnu | Blogs"
-        description="Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs."
-        canonical="https://www.adamibnu.dev/blogs"
-        openGraph={{
-            url: "https://www.adamibnu.dev",
-            title: "Adam Ibnu Alfatah",
-            description: "Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs.",
-            site_name: "Adam Ibnu Alfatah",
-        }}
-/>
-<BaseLayout>
+<BaseLayout title={title} description={description}>
     <LatesBlogs/>
 </BaseLayout>

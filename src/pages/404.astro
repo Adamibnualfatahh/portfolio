@@ -1,19 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Error404 from "../components/infopages/Error404.astro";
-import {AstroSeo} from "@astrolib/seo";
+
+const title = "404: Not Found | Adam Ibnu";
+const description = "The page you're looking for could not be found.";
 ---
-<AstroSeo
-        title="Adam Ibnu | 404"
-        description="Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs."
-        canonical="https://www.adamibnu.dev"
-        openGraph={{
-            url: "https://www.adamibnu.dev",
-            title: "Adam Ibnu Alfatah",
-            description: "Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs.",
-            site_name: "Adam Ibnu Alfatah",
-        }}
-/>
-<BaseLayout>
+<BaseLayout title={title} description={description}>
     <Error404/>
 </BaseLayout>

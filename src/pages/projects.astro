@@ -1,23 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { AstroSeo } from "@astrolib/seo";
-import About from "../components/infopages/About.astro";
 import Work from "../components/landing/Work.astro";
 import Cta from "../components/landing/Cta.astro";
----
 
-<AstroSeo
-        title="Adam Ibnu | Projects"
-        description="Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs."
-        canonical="https://www.adamibnu.dev/projects"
-        openGraph={{
-            url: "https://www.adamibnu.dev",
-            title: "Adam Ibnu Alfatah",
-            description: "Backend Developer with over 3 years of experience. Specializing in crafting robust backend systems and APIs.",
-            site_name: "Adam Ibnu Alfatah",
-        }}
-/>
-<BaseLayout>
+const title = "Projects | Adam Ibnu";
+const description = "Explore a selection of projects by Adam Ibnu, showcasing his skills in backend development and API creation.";
+---
+<BaseLayout title={title} description={description}>
     <Work/>
     <Cta/>
 </BaseLayout>
