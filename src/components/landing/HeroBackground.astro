@@ -20,6 +20,24 @@
       radius: Math.random() * 2 + 1,
     }));
 
+
+
+    let isVisible = true;
+    let animationId: number;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            isVisible = entry.isIntersecting;
+            if (isVisible && !animationId) {
+                animate();
+            } else if (!isVisible && animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = 0;
+            }
+        });
+    });
+    observer.observe(canvas);
+
     function animate() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
@@ -54,8 +72,9 @@
         });
       });
 
-      requestAnimationFrame(animate);
+      if (isVisible) {
+          animationId = requestAnimationFrame(animate);
+      }
     }
-    animate();
   }
 </script>
