@@ -9,16 +9,16 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px] p-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 auto-rows-[250px] p-0 md:p-4">
   {posts.map((post, i) => (
     <a href={`/blog/${post.slug}`} class={`
-      group relative overflow-hidden rounded-xl bg-neutral-900 border border-neutral-800
-      hover:border-carrot transition-all duration-300
+      group relative overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800
+      hover:border-carrot transition-all duration-500 ease-out
       ${i === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1 md:row-span-1'}
     `}>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
       
-      <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+      <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
         <div class="flex items-center gap-2 mb-2 text-xs text-carrot font-mono uppercase tracking-wider">
           <span>{post.data.publishDate.toLocaleDateString()}</span>
         </div>
@@ -32,7 +32,7 @@ const { posts } = Astro.props;
 
       <!-- Background Decoration -->
       <!-- Background Decoration -->
-      <div class="absolute inset-0 -z-10 group-hover:scale-105 transition-transform duration-700 bg-neutral-800">
+      <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 bg-neutral-800">
          {post.data.heroImage ? (
              <Image 
                src={post.data.heroImage} 
@@ -40,7 +40,7 @@ const { posts } = Astro.props;
                width={800}
                height={600}
                loading={i <= 2 ? "eager" : "lazy"}
-               class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300"
+               class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
              />
          ) : (
              <div class="w-full h-full opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>

@@ -20,7 +20,8 @@ const posts = (await getCollection('blog')).sort(
         </h1>
       </div>
       <Banner />
-      <div class="mx-auto p-8">
+      <div class="mx-auto p-4 lg:p-8">
+        <h2 class="sr-only">Latest Posts</h2>
         <BentoGrid posts={posts} />
       </div>
     </div>

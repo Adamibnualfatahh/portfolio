@@ -5,16 +5,20 @@ const posts = (await getCollection('blog')).sort(
     (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
 );
 ---
-<section class="border-white border-b border-e border-l">
-  <div class="p-10">
-    <div class="p-8">
-      <p class="text-white font-display uppercase text-3xl lg:text-6xl">
+<section class="border-white border-b border-e border-l bg-accent-500">
+  <div class="mx-auto border-white border-x px-8 py-12 gradient-grid">
+    <div class="mx-auto">
+      <h2 class="text-white font-display uppercase text-3xl lg:text-6xl pt-6">
         Scroll. Read. Smile. Repeat.
-      </p>
+      </h2>
     </div>
+  </div>
+</section>
 
-    <div class="mx-auto p-8">
+<section class="border-white border-b border-e border-l">
+  <div class="p-4 lg:p-10">
+    <div class="mx-auto">
       <BentoGrid posts={posts} />
     </div>
-        </div>
+  </div>
 </section>

@@ -29,7 +29,9 @@ const { title, description } = Astro.props;
   </head>
   <body class="mx-auto bg-black 2xl:max-w-7xl">
     <Navigation />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
     <script>
       import Lenis from 'lenis'
