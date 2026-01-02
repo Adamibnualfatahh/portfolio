@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px] p-4">
+  {posts.map((post, i) => (
+    <a href={`/blog/${post.slug}`} class={`
+      group relative overflow-hidden rounded-xl bg-neutral-900 border border-neutral-800
+      hover:border-carrot transition-all duration-300
+      ${i === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1 md:row-span-1'}
+    `}>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
+      
+      <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+        <div class="flex items-center gap-2 mb-2 text-xs text-carrot font-mono uppercase tracking-wider">
+          <span>{post.data.publishDate.toLocaleDateString()}</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2 leading-tight group-hover:text-carrot transition-colors">
+            {post.data.title}
+        </h3>
+        <p class="text-sm text-neutral-400 line-clamp-2">
+            {post.data.description}
+        </p>
+      </div>
+
+      <!-- Background Decoration -->
+      <!-- Background Decoration -->
+      <div class="absolute inset-0 -z-10 group-hover:scale-105 transition-transform duration-700 bg-neutral-800">
+         {post.data.heroImage ? (
+             <Image 
+               src={post.data.heroImage} 
+               alt={post.data.title} 
+               width={800}
+               height={600}
+               loading={i <= 2 ? "eager" : "lazy"}
+               class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300"
+             />
+         ) : (
+             <div class="w-full h-full opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+         )}
+      </div>
+    </a>
+  ))}
+</div>

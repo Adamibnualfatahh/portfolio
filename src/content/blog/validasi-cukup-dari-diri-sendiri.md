@@ -4,7 +4,7 @@ title: Validasi Cukup Dari Diri Sendiri
 slug: validasi-diri-sendiri
 description: Belajar melepaskan ketergantungan pada pujian orang lain dan mulai menemukan kekuatan dengan memberi validasi pada diri sendiri.
 publishDate: 2025-08-18
-heroImage: ../validasi-diri.png
+heroImage: ../../assets/validasi-diri.png
 author:
   name: Adam Ibnu Alfatah
 ShowReadingTime: true

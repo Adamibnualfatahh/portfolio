@@ -4,7 +4,7 @@ title: Cara Install Composer
 slug: cara-install-composer
 description: Panduan langkah demi langkah tentang cara menginstal Composer pada sistem Anda.
 publishDate: 2023-11-30
-heroImage: ../composer.png
+heroImage: ../../assets/composer.png
 imageCredit: 
 author:
   name: Adam Ibnu Alfatah

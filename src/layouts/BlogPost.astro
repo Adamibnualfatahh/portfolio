@@ -2,25 +2,24 @@
 import BaseLayout from "./BaseLayout.astro";
 import Disqus from "../components/global/Disqus.astro";
 import {AstroSeo} from "@astrolib/seo";
+import { Image } from "astro:assets";
 export const prerender = true;
 
 export interface Props {
-    content: {
-        title: string;
-        description: string;
-        publishDate?: string;
-        updatedDate?: string;
-        heroImage?: string;
-        author?: string;
-        tags?: string[];
-        readDuration?: string;
-        slug?: string;
-    };
+    title: string;
+    description: string;
+    publishDate?: string | Date;
+    updatedDate?: string | Date;
+    heroImage?: ImageMetadata;
+    author?: string | { name: string };
+    tags?: string[];
+    readDuration?: number;
+    slug?: string;
 }
 
 const {
-    content: { title, description, publishDate, updatedDate, heroImage, author, tags,readDuration, slug },
-} = Astro.props as Props;
+    title, description, publishDate, updatedDate, heroImage, author, tags, readDuration, slug
+} = Astro.props;
 
 const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateString('id-ID', {
     year: 'numeric',
@@ -28,26 +27,16 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
     day: 'numeric',
     timeZone: 'Asia/Jakarta'
 }) : '';
-
-const assets = await Astro.glob('../assets/**/*');
-const heroImageAsset = assets.find(asset => {
-    if (!heroImage) {
-        return false;
-    }
-    if (!asset.default?.src) {
-        return false;
-    }
-    const index = asset.default.src.indexOf('/assets/');
-    return asset.default.src.slice(index) === heroImage;
-});
 ---
 <BaseLayout title={`Adam Ibnu | ${title}`} description={description}>
     <section class="border-white border-e border-l">
     <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
-            <img src={heroImage} alt={title} class="rounded-sm min-w-full px-4 sm:px-0" onerror="this.onerror=null; this.src='/default.png'" />
+            {heroImage && (
+                <Image src={heroImage} alt={title} class="rounded-sm min-w-full px-4 sm:px-0" loading="eager" />
+            )}
             <div class="flex flex-col sm:flex-row justify-between items-center -mt-4 sm:-mt-10 mb-4 sm:mb-0">
                 <p class="font-light text-sm sm:text-base mb-2 sm:mb-0">{formattedPublishDate} {readDuration ? ' | ' + readDuration + ' minute(s) read' : ''}</p>
-                <p class="font-light text-right">{author['name']}</p>
+                <p class="font-light text-right">{typeof author === 'string' ? author : author?.name}</p>
             </div>
             <div class="sm:py-2 px-4 sm:px-0">
                 <p class="font-bold text-3xl mt-2">{title}</p>

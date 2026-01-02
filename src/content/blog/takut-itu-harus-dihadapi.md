@@ -4,7 +4,7 @@ title: Takut Itu Harus Dihadapi
 slug: takut-itu-harus-dihadapi
 description: Menghadapi ketakutan di dunia kerja, pendidikan, dan kehidupan sebagai introvert.
 publishDate: 2024-09-15
-heroImage: ../takut-itu-harus-dihadapi.png
+heroImage: ../../assets/takut-itu-harus-dihadapi.png
 author:
   name: Adam Ibnu Alfatah
 ShowReadingTime: true

@@ -4,7 +4,7 @@ title: Balancing Hustle dalam Kerja dan Kuliah
 slug: balancing-hustle
 description: Menghadapi tantangan bekerja sambil kuliah dan cara menjaga kesehatan mental serta produktivitas.
 publishDate: 2024-09-15
-heroImage: ../balancing-hustle.png
+heroImage: ../../assets/balancing-hustle.png
 author:
   name: Adam Ibnu Alfatah
 ShowReadingTime: true

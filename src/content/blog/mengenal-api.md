@@ -4,7 +4,7 @@ title: Mengenal Apa Itu A.P.I
 slug: mengenal-api
 description: API adalah sekumpulan definisi dan protokol untuk membangun dan mengintegrasikan perangkat lunak aplikasi. API adalah singkatan dari antarmuka pemrograman aplikasi (Application Programming Interface). 
 publishDate: 2021-11-07
-heroImage: ../api.png
+heroImage: ../../assets/api.png
 author:
   name: Adam Ibnu Alfatah
 ShowReadingTime: true

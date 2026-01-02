@@ -4,7 +4,7 @@ title: Menjadi Manusia Cuek
 slug: menjadi-manusia-cuek  
 description: Tentang bagaimana bersikap cuek bisa menjaga produktivitas, tanpa mengorbankan kepedulian.  
 publishDate: 2024-09-15  
-heroImage: ../cuek.png  
+heroImage: ../../assets/cuek.png  
 author:  
   name: Adam Ibnu Alfatah  
 ShowReadingTime: true  
