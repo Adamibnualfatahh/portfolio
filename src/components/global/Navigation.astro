@@ -1,14 +1,29 @@
-<section class="mx-auto border-white border-t 2xl:max-w-7xl bg-black border-b justify-center lg:fixed lg:z-50 w-full">
+<section class="mx-auto border-white border-t 2xl:max-w-7xl bg-black border-b justify-center lg:fixed lg:z-50 w-full" x-data="{ open: false }">
   <div class="mx-auto bg-black w-full">
     <div class="mx-auto border-white border-x max-w-7xl flex flex-col lg:flex-row lg:items-center lg:justify-between w-full">
-      <div class="text-white text-center items-center w-full flex flex-col justify-between md:px-0 sm:flex-row sm:px-8">
-        <a href="/" class="text-white text-xs font-display inline-flex items-center md:px-8 md:text-center py-4 uppercase">
+      
+      <!-- Mobile Header: Logo + Toggle -->
+      <div class="flex items-center justify-between w-full lg:w-auto px-4 py-4 md:px-8 lg:p-0 border-b lg:border-none border-white">
+        <a href="/" class="text-white text-xs font-display inline-flex items-center uppercase lg:px-8 lg:py-4">
           <span>Adam Ibnu Alfatah &nbsp; &rarr;</span>
         </a>
-        <a href="/blogs" class="w-full bg-white duration-200 font-display hover:bg-black hover:text-white lg:ml-auto lg:w-auto px-6 py-4 sm:border-white text-black text-center text-xs uppercase">Blog</a>
-        <a href="/projects" class="w-full bg-white duration-200 font-display hover:bg-black hover:text-white lg:w-auto px-6 py-4 sm:border-white text-black text-center text-xs uppercase">Project</a>
-        <a href="/about" class="w-full bg-carrot duration-200 font-display lg:w-auto px-6 py-4 sm:border-white text-black hover:text-white text-center text-xs uppercase">About</a>
+        
+        <!-- Mobile Menu Button -->
+        <button @click="open = !open" class="lg:hidden text-white focus:outline-none p-2 ml-auto" aria-label="Toggle Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path x-show="open" style="display: none;" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
       </div>
+
+      <!-- Links (Collapsible on mobile) -->
+      <div :class="{'flex': open, 'hidden': !open}" class="hidden flex-col lg:flex lg:flex-row w-full lg:w-auto lg:ml-auto border-white">
+        <a href="/blogs" class="w-full bg-white duration-200 font-display hover:bg-black hover:text-white lg:w-auto px-6 py-4 border-b lg:border-b-0 lg:border-l border-white text-black text-center text-xs uppercase">Blog</a>
+        <a href="/projects" class="w-full bg-white duration-200 font-display hover:bg-black hover:text-white lg:w-auto px-6 py-4 border-b lg:border-b-0 lg:border-l border-white text-black text-center text-xs uppercase">Project</a>
+        <a href="/about" class="w-full bg-carrot duration-200 font-display lg:w-auto px-6 py-4 lg:border-l border-white text-black hover:text-white text-center text-xs uppercase">About</a>
+      </div>
+
     </div>
   </div>
 </section>
