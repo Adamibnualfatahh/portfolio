@@ -30,7 +30,7 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
 ---
 <BaseLayout title={`Adam Ibnu | ${title}`} description={description}>
     <section class="border-white border-e border-l">
-    <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
+        <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
             {heroImage && (
                 <Image src={heroImage} alt={title} class="rounded-sm min-w-full px-4 sm:px-0" loading="eager" />
             )}
@@ -43,7 +43,7 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
                 <p class="-mt-2 text-gray-500">{description}</p>
                 <div class="flex flex-wrap gap-3 mt-4 -mb-2">
                     {tags?.map((tag, index) => (
-                            <span key={index} class="rounded py-1 px-2 text-xs capitalize duration-300 bg-gray-300 text-black">{tag}</span>
+                        <span key={index} class="rounded py-1 px-2 text-xs capitalize duration-300 bg-gray-300 text-black">{tag}</span>
                     ))}
                 </div>
                 <hr>
@@ -51,8 +51,292 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
             </div>
         </div>
         <div class="px-4 sm:px-0">
-        <Disqus/>
+            <Disqus/>
         </div>
     </section>
+
+    <!-- Floating listen button -->
+    <button id="listen-btn" aria-label="Dengarkan artikel ini" class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-white text-black px-4 py-3 text-sm font-semibold shadow-lg hover:bg-gray-100" style="transition: opacity 0.2s, transform 0.2s">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+        </svg>
+        Dengarkan
+    </button>
+
+    <!-- Floating player -->
+    <div id="player" class="fixed bottom-6 right-6 z-50 w-72 rounded-2xl bg-white text-black shadow-2xl overflow-hidden" style="display:none;opacity:0;transform:translateY(8px);transition:opacity 0.2s,transform 0.2s">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+            <div class="flex items-end gap-0.5 h-4" id="wave">
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+                <span class="wave-bar"></span>
+            </div>
+            <span class="text-xs font-semibold tracking-wide uppercase text-gray-500 ml-2 flex-1">Sedang Dibaca</span>
+            <button id="player-close" aria-label="Tutup" class="p-1 rounded-full hover:bg-gray-100 text-gray-400 hover:text-black" style="transition:color 0.15s">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="px-4 pt-3 pb-1">
+            <p class="text-sm font-bold leading-snug" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{title}</p>
+            <p class="text-xs text-gray-400 mt-0.5">{typeof author === 'string' ? author : author?.name}</p>
+        </div>
+
+        <div class="px-4 pt-2 pb-1">
+            <div class="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
+                <div id="progress" class="h-full bg-black rounded-full" style="width:0%;transition:width 0.3s linear"></div>
+            </div>
+            <div class="flex justify-between mt-1">
+                <span id="current-word" class="text-xs text-gray-400 truncate max-w-48"></span>
+                <span id="pct" class="text-xs text-gray-400 ml-2 shrink-0">0%</span>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-4 px-4 py-3">
+            <button id="btn-rewind" aria-label="Mundur 10 detik" class="p-2 rounded-full hover:bg-gray-100 text-gray-500 hover:text-black" style="transition:color 0.15s,background 0.15s">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 5V2L7 7l5 5V8c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+                </svg>
+            </button>
+            <button id="btn-play" aria-label="Play" class="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 shrink-0" style="transition:background 0.15s">
+                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </button>
+            <button id="btn-speed" class="w-10 h-10 rounded-full hover:bg-gray-100 text-xs font-bold text-gray-500 hover:text-black flex items-center justify-center" style="transition:color 0.15s,background 0.15s">1x</button>
+        </div>
+    </div>
 </BaseLayout>
 
+<style>
+    .wave-bar {
+        display: inline-block;
+        height: 4px;
+        width: 2px;
+        border-radius: 9999px;
+        background: black;
+    }
+    #wave.on .wave-bar:nth-child(1) { animation: wb 0.8s ease-in-out infinite 0.0s; }
+    #wave.on .wave-bar:nth-child(2) { animation: wb 0.8s ease-in-out infinite 0.15s; }
+    #wave.on .wave-bar:nth-child(3) { animation: wb 0.8s ease-in-out infinite 0.3s; }
+    #wave.on .wave-bar:nth-child(4) { animation: wb 0.8s ease-in-out infinite 0.45s; }
+    #wave.on .wave-bar:nth-child(5) { animation: wb 0.8s ease-in-out infinite 0.6s; }
+    @keyframes wb { 0%,100%{ height:4px } 50%{ height:14px } }
+</style>
+
+<script>
+    const SPEEDS = [0.75, 1, 1.25, 1.5, 2, 3];
+    let si = 1;
+    let words: string[] = [];
+    let wi = 0;
+    let utt: SpeechSynthesisUtterance | null = null;
+    let playing = false;
+    let voice: SpeechSynthesisVoice | null = null;
+    let lastFrom = 0;      // kata awal saat speak() dipanggil
+    let lastCharIndex = 0; // charIndex terakhir dari onboundary
+
+    const listenBtn  = document.getElementById('listen-btn')!;
+    const player     = document.getElementById('player')!;
+    const closeBtn   = document.getElementById('player-close')!;
+    const playBtn    = document.getElementById('btn-play')!;
+    const playIcon   = document.getElementById('play-icon')!;
+    const rewindBtn  = document.getElementById('btn-rewind')!;
+    const speedBtn   = document.getElementById('btn-speed')!;
+    const progressEl = document.getElementById('progress')!;
+    const pctEl      = document.getElementById('pct')!;
+    const wordEl     = document.getElementById('current-word')!;
+    const wave       = document.getElementById('wave')!;
+
+    const PAUSE_PATH = `<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>`;
+    const PLAY_PATH  = `<path d="M8 5v14l11-7z"/>`;
+
+    /* ── Voice selection: prefer male Indonesian ── */
+    function pickVoice() {
+        const all = speechSynthesis.getVoices();
+        // 1. Indonesian male by name hint
+        let v = all.find(v => v.lang.startsWith('id') && /male|man|pria|laki/i.test(v.name));
+        // 2. Any Indonesian
+        if (!v) v = all.find(v => v.lang === 'id-ID');
+        if (!v) v = all.find(v => v.lang.startsWith('id'));
+        // 3. English male fallback
+        if (!v) v = all.find(v => v.lang.startsWith('en') && /male|man|david|mark|daniel|james/i.test(v.name));
+        // 4. Whatever's available
+        if (!v) v = all[0] ?? null;
+        voice = v;
+    }
+
+    /* ── Extract article body (after first <hr>) ── */
+    function getText(): string {
+        const prose = document.querySelector('.prose');
+        if (!prose) return '';
+        const clone = prose.cloneNode(true) as HTMLElement;
+        clone.querySelectorAll('img,button,.flex.flex-wrap,p.font-bold,p.-mt-2,p.font-light').forEach(e => e.remove());
+        const hr = clone.querySelector('hr');
+        let raw = '';
+        if (hr) {
+            const tmp = document.createElement('div');
+            let n = hr.nextSibling;
+            while (n) { tmp.appendChild(n.cloneNode(true)); n = n.nextSibling; }
+            raw = tmp.innerText;
+        } else {
+            raw = clone.innerText;
+        }
+        return raw
+            .replace(/#{1,6} /g, '')
+            .replace(/\*+|_+/g, '')
+            .replace(/`[^`]*`/g, '')
+            .replace(/---+/g, '. ')
+            .replace(/wkwk+/gi, 'haha')
+            .replace(/[^\w\s.,!?;:'"()-]/g, ' ')
+            .replace(/\s+/g, ' ').trim();
+    }
+
+    /* ── Progress ── */
+    function updateProgress(i: number) {
+        wi = i;
+        const p = words.length ? Math.round(i / words.length * 100) : 0;
+        progressEl.style.width = p + '%';
+        pctEl.textContent = p + '%';
+        wordEl.textContent = words.slice(i, i + 4).join(' ');
+    }
+
+    /* ── Speak from word index ── */
+    function speak(from = 0) {
+        speechSynthesis.cancel();
+        const text = words.slice(from).join(' ');
+        if (!text.trim()) return;
+
+        lastFrom = from;
+        lastCharIndex = 0;
+
+        const thisUtt = new SpeechSynthesisUtterance(text);
+        utt = thisUtt;
+        thisUtt.lang = 'id-ID';
+        thisUtt.rate = SPEEDS[si];
+        thisUtt.pitch = voice?.lang.startsWith('id') ? 0.9 : 0.8;
+        thisUtt.volume = 1;
+        if (voice) thisUtt.voice = voice;
+
+        thisUtt.onboundary = e => {
+            if (utt !== thisUtt) return; // utterance lama, abaikan
+            if (e.name !== 'word') return;
+            lastCharIndex = e.charIndex;
+            const spoken = text.substring(0, e.charIndex).trim().split(/\s+/).filter(Boolean).length;
+            updateProgress(from + spoken);
+        };
+        thisUtt.onend = () => {
+            if (utt !== thisUtt) return; // utterance lama, abaikan
+            setPlaying(false);
+            updateProgress(words.length);
+        };
+        thisUtt.onerror = () => {
+            if (utt !== thisUtt) return; // utterance lama, abaikan
+            setPlaying(false);
+        };
+
+        speechSynthesis.speak(thisUtt);
+        setPlaying(true);
+    }
+
+    /* ── Hitung posisi kata saat ini dari charIndex terakhir ── */
+    function currentWordIndex(): number {
+        const text = words.slice(lastFrom).join(' ');
+        const spoken = text.substring(0, lastCharIndex).trim().split(/\s+/).filter(Boolean).length;
+        return lastFrom + spoken;
+    }
+
+    /* ── UI state ── */
+    function setPlaying(v: boolean) {
+        playing = v;
+        playIcon.innerHTML = v ? PAUSE_PATH : PLAY_PATH;
+        wave.classList.toggle('on', v);
+    }
+
+    function showPlayer() {
+        listenBtn.style.display = 'none';
+        player.style.display = 'block';
+        requestAnimationFrame(() => {
+            player.style.opacity = '1';
+            player.style.transform = 'translateY(0)';
+        });
+    }
+
+    function hidePlayer() {
+        player.style.opacity = '0';
+        player.style.transform = 'translateY(8px)';
+        setTimeout(() => { player.style.display = 'none'; listenBtn.style.display = 'flex'; }, 200);
+        speechSynthesis.cancel();
+        setPlaying(false);
+        updateProgress(0);
+        wi = 0;
+    }
+
+    /* ── Init voices (Chrome loads async) ── */
+    function ensureVoice(): Promise<void> {
+        return new Promise(res => {
+            if (speechSynthesis.getVoices().length) { pickVoice(); res(); return; }
+            speechSynthesis.onvoiceschanged = () => { pickVoice(); res(); };
+        });
+    }
+    ensureVoice();
+
+    /* ── Events ── */
+    listenBtn.addEventListener('click', async () => {
+        await ensureVoice();
+        if (!words.length) words = getText().split(/\s+/).filter(Boolean);
+        showPlayer();
+        speak(0);
+    });
+
+    closeBtn.addEventListener('click', hidePlayer);
+
+    playBtn.addEventListener('click', () => {
+        if (playing) {
+            speechSynthesis.pause();
+            setPlaying(false);
+        } else if (speechSynthesis.paused) {
+            speechSynthesis.resume();
+            setPlaying(true);
+        } else {
+            speak(wi);
+        }
+    });
+
+    rewindBtn.addEventListener('click', () => speak(Math.max(0, currentWordIndex() - 30)));
+
+    speedBtn.addEventListener('click', () => {
+        si = (si + 1) % SPEEDS.length;
+        speedBtn.textContent = SPEEDS[si] + 'x';
+        // Selalu restart dari posisi akurat agar speed langsung apply
+        speak(currentWordIndex());
+    });
+
+    /* ── Seek: klik progress bar ── */
+    const progressTrack = progressEl.parentElement!;
+    
+    function seekTo(clientX: number) {
+        const rect = progressTrack.getBoundingClientRect();
+        const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+        const targetWord = Math.floor(ratio * words.length);
+        speak(targetWord);
+    }
+
+    progressTrack.style.cursor = 'pointer';
+    progressTrack.addEventListener('click', e => seekTo((e as MouseEvent).clientX));
+
+    // Drag support
+    let dragging = false;
+    progressTrack.addEventListener('mousedown', e => { dragging = true; seekTo((e as MouseEvent).clientX); });
+    document.addEventListener('mousemove', e => { if (dragging) seekTo((e as MouseEvent).clientX); });
+    document.addEventListener('mouseup', () => { dragging = false; });
+
+    // Touch support
+    progressTrack.addEventListener('touchstart', e => seekTo(e.touches[0].clientX), { passive: true });
+    progressTrack.addEventListener('touchmove', e => seekTo(e.touches[0].clientX), { passive: true });
+
+    document.addEventListener('astro:before-swap', () => speechSynthesis.cancel());
+</script>
