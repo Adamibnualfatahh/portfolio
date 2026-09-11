@@ -3,6 +3,8 @@ import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import Footer from "@/components/global/Footer.astro";
 import BackToTop from "@/components/global/BackToTop.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 export const prerender = true;
 
 export interface Props {
@@ -42,6 +44,8 @@ const { title, description } = Astro.props;
     </main>
     <Footer />
     <BackToTop />
+    <SpeedInsights />
+    <Analytics />
     <script>
       import Lenis from 'lenis'
 
