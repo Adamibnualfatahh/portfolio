@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: Angkat Beban, Angkat Mental
 slug: angkat-beban-angkat-mental
 description: Bagaimana olahraga angkat beban bukan hanya membentuk fisik, tapi juga memperkuat mental dan memberikan ketenangan di tengah hiruk pikuk hidup.

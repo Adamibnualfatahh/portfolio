@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro  
 title: Menjadi Manusia Cuek  
 slug: menjadi-manusia-cuek  
 description: Tentang bagaimana bersikap cuek bisa menjaga produktivitas, tanpa mengorbankan kepedulian.  

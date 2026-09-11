@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: Husstt...
 slug: husstt
 description: Mengenal introvert lebih dalam, melampaui stereotip dan menemukan kekuatan dalam keheningan.

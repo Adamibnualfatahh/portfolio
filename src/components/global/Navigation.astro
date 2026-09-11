@@ -1,3 +1,8 @@
+---
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) =>
+  path === "/" ? currentPath === "/" : currentPath.startsWith(path);
+---
 <section class="mx-auto border-white border-t 2xl:max-w-7xl bg-black border-b justify-center lg:fixed lg:z-50 w-full" x-data="{ open: false }">
   <div class="mx-auto bg-black w-full">
     <div class="mx-auto border-white border-x max-w-7xl flex flex-col lg:flex-row lg:items-center lg:justify-between w-full">
@@ -19,9 +24,21 @@
 
       <!-- Links (Collapsible on mobile) -->
       <div :class="{'flex': open, 'hidden': !open}" class="hidden flex-col lg:flex lg:flex-row w-full lg:w-auto lg:ml-auto border-white">
-        <a href="/blogs" class="w-full bg-white duration-200 font-display hover:bg-black hover:text-white lg:w-auto px-6 py-4 border-b lg:border-b-0 lg:border-l border-white text-black text-center text-xs uppercase">Blog</a>
-        <a href="/projects" class="w-full bg-white duration-200 font-display hover:bg-black hover:text-white lg:w-auto px-6 py-4 border-b lg:border-b-0 lg:border-l border-white text-black text-center text-xs uppercase">Project</a>
-        <a href="/about" class="w-full bg-carrot duration-200 font-display lg:w-auto px-6 py-4 lg:border-l border-white text-black hover:text-white text-center text-xs uppercase">About</a>
+        <a
+          href="/blogs"
+          aria-current={isActive("/blogs") ? "page" : undefined}
+          class={`w-full duration-200 font-display lg:w-auto px-6 py-4 border-b lg:border-b-0 lg:border-l border-white text-center text-xs uppercase ${isActive("/blogs") ? "bg-black text-white" : "bg-white text-black hover:bg-black hover:text-white"}`}
+        >Blog</a>
+        <a
+          href="/projects"
+          aria-current={isActive("/projects") ? "page" : undefined}
+          class={`w-full duration-200 font-display lg:w-auto px-6 py-4 border-b lg:border-b-0 lg:border-l border-white text-center text-xs uppercase ${isActive("/projects") ? "bg-black text-white" : "bg-white text-black hover:bg-black hover:text-white"}`}
+        >Projects</a>
+        <a
+          href="/about"
+          aria-current={isActive("/about") ? "page" : undefined}
+          class={`w-full duration-200 font-display lg:w-auto px-6 py-4 lg:border-l border-white text-center text-xs uppercase ${isActive("/about") ? "bg-black text-white" : "bg-carrot text-black hover:text-white"}`}
+        >About</a>
       </div>
 
     </div>

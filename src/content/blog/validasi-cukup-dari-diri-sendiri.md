@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: Validasi Cukup Dari Diri Sendiri
 slug: validasi-diri-sendiri
 description: Belajar melepaskan ketergantungan pada pujian orang lain dan mulai menemukan kekuatan dengan memberi validasi pada diri sendiri.

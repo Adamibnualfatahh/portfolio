@@ -1,304 +1,410 @@
-<section class="border-b border-white bg-accent-500">
-  <div class="mx-auto max-w-7xl border-x border-white px-8 py-12 gradient-grid">
-    <div class="mx-auto">
-      <h3 class="text-3xl font-display text-white uppercase pt-6">
-        Side Hustle Chronicles
-      </h3>
+---
+import { Image } from "astro:assets";
+import work1 from "../../assets/work/1.png";
+import work2 from "../../assets/work/2.png";
+import work3 from "../../assets/work/3.png";
+import work4 from "../../assets/work/4.png";
+import work5 from "../../assets/work/5.png";
+import work7 from "../../assets/work/7.png";
+import work8 from "../../assets/work/8.png";
+import work9 from "../../assets/work/9.png";
+import work10 from "../../assets/work/10.png";
+import skillhub from "../../assets/work/skillhub.png";
+import karirhub from "../../assets/work/karirhub.png";
+import kerjoo from "../../assets/work/kerjoo.png";
+import kerjooChat from "../../assets/work/kerjoo-chat.webp";
+import kerjooInvoice from "../../assets/work/kerjoo-invoice.png";
+import lika from "../../assets/work/lika.png";
+import mauren from "../../assets/work/mauren.png";
+
+const professionalProjects = [
+  {
+    title: "Kemnaker Skillhub",
+    description:
+      "A vocational learning platform that helps Indonesian talent build practical, job-ready skills.",
+    img: skillhub,
+    demo: "https://skillhub.kemnaker.go.id/",
+    label: "Government Platform",
+  },
+  {
+    title: "Kemnaker Karirhub",
+    description:
+      "A national career platform connecting job seekers with opportunities and employers.",
+    img: karirhub,
+    demo: "https://karirhub.kemnaker.go.id/",
+    label: "Government Platform",
+  },
+  {
+    title: "Kerjoo.com",
+    description:
+      "A product website for an HRIS platform covering attendance, payroll, and workforce operations.",
+    img: kerjoo,
+    demo: "https://kerjoo.com/",
+    label: "SaaS Product",
+  },
+  {
+    title: "Kerjoo Chat",
+    description:
+      "A multi-agent WhatsApp customer service dashboard for faster, more coordinated support.",
+    img: kerjooChat,
+    demo: "https://kerjoo.com/",
+    label: "Customer Service",
+  },
+  {
+    title: "Kerjoo Invoice",
+    description:
+      "An invoicing workspace for managing business documents, customers, and incoming payments.",
+    img: kerjooInvoice,
+    demo: "https://kerjoo.com/",
+    label: "Business Operations",
+  },
+  {
+    title: "Lika.id",
+    description:
+      "A responsive production website designed around a clear and approachable user experience.",
+    img: lika,
+    demo: "https://lika.id/",
+    label: "Product Website",
+  },
+  {
+    title: "Mauren.id",
+    description:
+      "A polished digital presence built to communicate the product clearly across devices.",
+    img: mauren,
+    demo: "https://mauren.id/",
+    label: "Product Website",
+  },
+];
+
+const independentProjects = [
+  {
+    title: "Kalkulator Nusantara",
+    description:
+      "A collection of practical calculators designed for everyday needs in Indonesia.",
+    img: work10,
+    code: "https://github.com/Adamibnualfatahh/kalkulator-nusantara",
+    demo: "https://kalkulator-sehat-nusantara.vercel.app/",
+    label: "Web Utility",
+  },
+  {
+    title: "Jogo Rogo",
+    description:
+      "A focused wellness experience that turns healthy routines into simple daily actions.",
+    img: work9,
+    code: "https://github.com/Adamibnualfatahh/jogo-rogo",
+    demo: "https://jogo-rogo.vercel.app/",
+    label: "Health & Wellness",
+  },
+  {
+    title: "Kotak Kata",
+    description:
+      "An Indonesian word game with a lightweight, responsive, and playful interface.",
+    img: work7,
+    code: "https://github.com/Adamibnualfatahh/kotak-kata",
+    demo: "https://kotak-kata.vercel.app/",
+    label: "Word Game",
+  },
+  {
+    title: "SecondThought",
+    description:
+      "A simple digital tool created to make reflection and decision-making more intentional.",
+    img: work8,
+    code: "https://github.com/Adamibnualfatahh/second-thought",
+    demo: "https://second-thought-nu.vercel.app/",
+    label: "Web Application",
+  },
+  {
+    title: "Hospital Room Availability",
+    description:
+      "A responsive interface for checking hospital room availability more efficiently.",
+    img: work1,
+    code: "https://github.com/Adamibnualfatahh/hospital-room-availability",
+    demo: "https://hospital-room-availability.vercel.app/",
+    label: "Healthcare",
+  },
+  {
+    title: "GitHub Profile Finder",
+    description:
+      "A fast profile explorer for reviewing public GitHub information in one place.",
+    img: work2,
+    code: "https://github.com/Adamibnualfatahh/github-finder",
+    demo:
+      "https://github-finder-virid-ten.vercel.app/?username=adamibnualfatahh",
+    label: "Developer Tool",
+  },
+  {
+    title: "Moonton Streaming Platform",
+    description:
+      "A streaming platform interface exploring content discovery and media browsing.",
+    img: work3,
+    code: "https://github.com/Adamibnualfatahh/moonton",
+    demo: null,
+    label: "UI Exploration",
+  },
+  {
+    title: "Laravel Probe Monitoring",
+    description:
+      "A Laravel package for monitoring application health and operational signals.",
+    img: work4,
+    code: "https://github.com/Adamibnualfatahh/laravel-probe",
+    demo: "https://packagist.org/packages/laravel-probe/probe",
+    label: "Open Source",
+  },
+  {
+    title: "Image to Text Converter",
+    description:
+      "A compact OCR utility that extracts readable text from uploaded images.",
+    img: work5,
+    code: "https://github.com/Adamibnualfatahh/image-to-text",
+    demo: "https://image-to-text-sigma.vercel.app/",
+    label: "Web Utility",
+  },
+];
+---
+
+<section
+  class="border-b border-white bg-black pt-16 lg:pt-24"
+  aria-labelledby="projects-title"
+>
+  <div class="gradient-grid mx-auto max-w-7xl border-x border-white">
+    <header class="grid gap-10 px-6 py-16 md:px-10 lg:grid-cols-[1fr_22rem] lg:items-end lg:px-12 lg:py-24">
+      <div class="max-w-4xl">
+        <p class="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-carrot">
+          Selected work / {professionalProjects.length + independentProjects.length} projects
+        </p>
+        <h1
+          id="projects-title"
+          class="font-display text-4xl uppercase leading-[0.92] text-white sm:text-5xl lg:text-7xl"
+        >
+          Products built for real-world use.
+        </h1>
+      </div>
+
+      <div>
+        <p class="text-sm leading-7 text-eagle">
+          A selection of production platforms and independent experiments,
+          shaped by backend engineering and end-to-end product delivery.
+        </p>
+        <a
+          href="#professional-work"
+          class="mt-6 inline-flex items-center gap-3 border-b border-carrot pb-2 font-mono text-xs uppercase tracking-[0.18em] text-white hover:text-carrot"
+        >
+          Explore projects
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </header>
+
+    <dl class="grid border-t border-white sm:grid-cols-3">
+      <div class="border-b border-white px-6 py-6 sm:border-b-0 sm:border-r lg:px-10">
+        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-eagle">
+          Professional work
+        </dt>
+        <dd class="mt-2 font-display text-3xl text-white">
+          {String(professionalProjects.length).padStart(2, "0")}
+        </dd>
+      </div>
+      <div class="border-b border-white px-6 py-6 sm:border-b-0 sm:border-r lg:px-10">
+        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-eagle">
+          Independent projects
+        </dt>
+        <dd class="mt-2 font-display text-3xl text-white">
+          {String(independentProjects.length).padStart(2, "0")}
+        </dd>
+      </div>
+      <div class="px-6 py-6 lg:px-10">
+        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-eagle">
+          Core perspective
+        </dt>
+        <dd class="mt-3 text-sm font-semibold uppercase tracking-wider text-white">
+          Backend-first
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section
+  id="professional-work"
+  class="scroll-mt-16 border-b border-white bg-black"
+  aria-labelledby="professional-work-title"
+>
+  <div class="mx-auto max-w-7xl border-x border-white">
+    <header class="grid gap-5 border-b border-white px-6 py-10 md:grid-cols-[1fr_auto] md:items-end md:px-10 lg:px-12">
+      <div>
+        <p class="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-carrot">
+          Client &amp; team delivery
+        </p>
+        <h2
+          id="professional-work-title"
+          class="font-display text-3xl uppercase leading-none text-white md:text-5xl"
+        >
+          Professional Work
+        </h2>
+      </div>
+      <p class="max-w-md text-sm leading-6 text-eagle md:text-right">
+        Production products delivered for government services, SaaS teams, and
+        growing digital businesses.
+      </p>
+    </header>
+
+    <div class="grid lg:grid-cols-2">
+      {
+        professionalProjects.map((project, index) => (
+          <article
+            class:list={[
+              "group flex min-h-full flex-col border-white bg-[#161616] transition-colors duration-300 hover:bg-[#1b1b1b]",
+              index % 2 === 0 && "lg:border-r",
+              index < professionalProjects.length - 2 && "border-b",
+              index === professionalProjects.length - 2 && "border-b lg:border-b-0",
+            ]}
+          >
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+              class="relative block aspect-[16/10] overflow-hidden border-b border-white/20 bg-white/5"
+              aria-label={`Visit ${project.title} website`}
+            >
+              <Image
+                src={project.img}
+                alt={`${project.title} project preview`}
+                width={960}
+                height={600}
+                loading="lazy"
+                format="webp"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025] group-hover:opacity-90"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+              <span class="absolute left-4 top-4 border border-white/30 bg-black/80 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                {project.label}
+              </span>
+              <span class="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border border-white bg-black text-lg text-white transition duration-300 group-hover:-translate-y-1 group-hover:bg-carrot">
+                <span class="sr-only">Open project</span>
+                <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+
+            <div class="flex flex-1 flex-col p-6 md:p-8">
+              <div class="mb-5 flex items-start justify-between gap-6">
+                <h3 class="font-display text-2xl uppercase leading-tight text-white md:text-3xl">
+                  {project.title}
+                </h3>
+                <span class="shrink-0 font-mono text-xs tracking-[0.2em] text-carrot">
+                  /{String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <p class="mb-8 max-w-xl text-sm leading-6 text-eagle">
+                {project.description}
+              </p>
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noreferrer"
+                class="mt-auto inline-flex items-center justify-between border-t border-white/20 pt-4 font-mono text-xs uppercase tracking-[0.18em] text-white hover:border-carrot hover:text-carrot"
+              >
+                Visit website
+                <span class="text-base" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
-<section class="border-b border-white bg-accent-500">
-  <div
-    class="mx-auto max-w-7xl border-white border-x relative group"
-    x-data="{ init() {
-            new Splide(this.$refs.splide2, {
-                perPage: 3,
-                gap: '2rem',
-                breakpoints: {
-                    1024: {
-                        perPage: 2,
-                        gap: '1.5rem',
-                    },
-                    640: {
-                        perPage: 1,
-                        gap: '1rem',
-                    },
-                },
-                pagination: true,
-                arrows: true,
-            }).mount()
-        },
-    }">
-    <section
-      class="splide"
-      aria-label="Side Hustle Chronicles"
-      x-ref="splide2">
-      
-      <div class="splide__arrows splide__arrows--ltr">
-         <button
-          class="splide__arrow splide__arrow--prev absolute top-1/2 left-4 -translate-y-1/2 z-10 bg-black border-2 border-white text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-white hover:text-black hover:border-black transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100 scale-x-[-1]"
-          type="button"
-          aria-label="Previous slide">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </button>
-        <button
-          class="splide__arrow splide__arrow--next absolute top-1/2 right-4 -translate-y-1/2 z-10 bg-black border-2 border-white text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-white hover:text-black hover:border-black transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
-          type="button"
-          aria-label="Next slide">
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </button>
+<section
+  class="border-b border-white bg-accent-500"
+  aria-labelledby="independent-projects-title"
+>
+  <div class="mx-auto max-w-7xl border-x border-white">
+    <header class="gradient-grid grid gap-5 border-b border-white px-6 py-10 md:grid-cols-[1fr_auto] md:items-end md:px-10 lg:px-12">
+      <div>
+        <p class="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-carrot">
+          Learning through building
+        </p>
+        <h2
+          id="independent-projects-title"
+          class="font-display text-3xl uppercase leading-none text-white md:text-5xl"
+        >
+          Independent Projects
+        </h2>
       </div>
+      <p class="max-w-md text-sm leading-6 text-eagle md:text-right">
+        Focused experiments, open-source tools, and product ideas built from
+        curiosity.
+      </p>
+    </header>
 
-      <div class="splide__track py-12 px-8">
-        <ul class="splide__list">
-          {
-            [
-              {
-                title: "Kalkulator Nusantara",
-                img: "/work/10.png",
-                code: "https://github.com/Adamibnualfatahh/kalkulator-nusantara",
-                demo: "https://kalkulator-sehat-nusantara.vercel.app/"
-              },
-              {
-                title: "Jogo Rogo",
-                img: "/work/9.png",
-                code: "https://github.com/Adamibnualfatahh/jogo-rogo",
-                demo: "https://jogo-rogo.vercel.app/"
-              },
-              {
-                title: "Kotak Kata",
-                img: "/work/7.png",
-                code: "https://github.com/Adamibnualfatahh/kotak-kata",
-                demo: "https://kotak-kata.vercel.app/"
-              },
-              {
-                title: "SecondThought",
-                img: "/work/8.png",
-                code: "https://github.com/Adamibnualfatahh/second-thought",
-                demo: "https://second-thought-nu.vercel.app/"
-              },
-              {
-                title: "Hospital Room Availability",
-                img: "/work/1.png",
-                code: "https://github.com/Adamibnualfatahh/hospital-room-availability",
-                demo: "https://hospital-room-availability.vercel.app/"
-              },
-              {
-                title: "Github Profile Finder",
-                img: "/work/2.png",
-                code: "https://github.com/Adamibnualfatahh/github-finder",
-                demo: "https://github-finder-virid-ten.vercel.app/?username=adamibnualfatahh"
-              },
-              {
-                title: "Moonton-streaming platform",
-                img: "/work/3.png",
-                code: "https://github.com/Adamibnualfatahh/moonton",
-                demo: null
-              },
-              {
-                title: "Laravel Probe Monitoring",
-                img: "/work/4.png",
-                code: "https://github.com/Adamibnualfatahh/laravel-probe",
-                demo: "https://packagist.org/packages/laravel-probe/probe"
-              },
-              {
-                title: "Image to text converter",
-                img: "/work/5.png",
-                code: "https://github.com/Adamibnualfatahh/image-to-text",
-                demo: "https://image-to-text-sigma.vercel.app/"
-              }
-            ].map((project) => (
-              <li class="splide__slide">
-                <div class="h-full bg-eagle border-2 border-black rounded-2xl overflow-hidden flex flex-col shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
-                  <div class="aspect-video w-full border-b-2 border-black overflow-hidden relative group">
-                    <img
-                      src={project.img}
-                      alt={project.title}
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                  </div>
-                  
-                  <div class="p-5 flex flex-col flex-grow bg-white">
-                    <h4 class="text-lg font-display font-bold text-black uppercase leading-tight mb-4 flex-grow line-clamp-2">
-                      {project.title}
-                    </h4>
-                    
-                    <div class="grid grid-cols-2 gap-3 mt-auto">
-                      <a
-                        href={project.code}
-                        target="_blank"
-                        class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold border-2 border-black rounded-lg hover:bg-black hover:text-white transition-colors uppercase tracking-wider"
-                      >
-                         Code
-                      </a>
-                      {project.demo ? (
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold bg-carrot text-white border-2 border-black rounded-lg hover:bg-white hover:text-black transition-colors uppercase tracking-wider"
-                        >
-                          Demo
-                        </a>
-                      ) : (
-                        <span
-                          class="flex items-center justify-center gap-2 px-3 py-2 text-xs font-bold bg-gray-200 text-gray-500 border-2 border-gray-300 rounded-lg cursor-not-allowed uppercase tracking-wider"
-                        >
-                          No Demo
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-  </div>
-</section>
+    <div class="grid gap-px bg-white md:grid-cols-2 xl:grid-cols-3">
+      {
+        independentProjects.map((project, index) => (
+          <article class="group flex min-h-full flex-col bg-accent-500 p-4 transition-colors duration-300 hover:bg-[#151515] md:p-6">
+            <a
+              href={project.demo ?? project.code}
+              target="_blank"
+              rel="noreferrer"
+              class="relative block aspect-video overflow-hidden border border-white/20 bg-black"
+              aria-label={`View ${project.title}`}
+            >
+              <Image
+                src={project.img}
+                alt={`${project.title} project preview`}
+                width={720}
+                height={405}
+                loading="lazy"
+                format="webp"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04] group-hover:opacity-80"
+              />
+              <span class="absolute left-3 top-3 border border-white/30 bg-black/80 px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                {project.label}
+              </span>
+            </a>
 
-<section class="border-b border-white bg-accent-500">
-  <div class="mx-auto max-w-7xl border-x border-white px-8 py-12 gradient-grid">
-    <div class="mx-auto">
-      <h3 class="text-3xl font-display text-white uppercase pt-6">
-        Professional Work
-      </h3>
+            <div class="flex flex-1 flex-col px-1 pb-1 pt-6">
+              <div class="mb-4 flex items-start justify-between gap-4">
+                <h3 class="font-display text-xl uppercase leading-tight text-white">
+                  {project.title}
+                </h3>
+                <span class="shrink-0 font-mono text-[0.65rem] tracking-[0.18em] text-carrot">
+                  /{String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <p class="mb-6 text-sm leading-6 text-eagle">
+                {project.description}
+              </p>
+
+              <div class="mt-auto grid grid-cols-2 gap-2 border-t border-white/20 pt-4">
+                <a
+                  href={project.code}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex items-center justify-center gap-2 border border-white/30 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white hover:border-white hover:bg-white hover:text-black"
+                >
+                  Source
+                  <span aria-hidden="true">↗</span>
+                </a>
+                {project.demo ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center justify-center gap-2 border border-carrot bg-carrot px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white hover:bg-white hover:text-black"
+                  >
+                    Live site
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <span class="inline-flex cursor-not-allowed items-center justify-center border border-white/10 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/40">
+                    No preview
+                  </span>
+                )}
+              </div>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
-
-<section class="border-b border-white bg-accent-500">
-  <div
-    class="mx-auto max-w-7xl border-white border-x relative group"
-    x-data="{ init() {
-            new Splide(this.$refs.splide1, {
-                perPage: 2,
-                gap: '2rem',
-                breakpoints: {
-                    640: {
-                        perPage: 1,
-                        gap: '1rem',
-                    },
-                },
-                pagination: true,
-                arrows: true,
-            }).mount()
-        },
-    }">
-    <section
-      class="splide"
-      aria-label="Professional Work"
-      x-ref="splide1">
-      
-      <div class="splide__arrows splide__arrows--ltr">
-         <button
-          class="splide__arrow splide__arrow--prev absolute top-1/2 left-4 -translate-y-1/2 z-10 bg-black border-2 border-white text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-white hover:text-black hover:border-black transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100 scale-x-[-1]"
-          type="button"
-          aria-label="Previous slide">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </button>
-        <button
-          class="splide__arrow splide__arrow--next absolute top-1/2 right-4 -translate-y-1/2 z-10 bg-black border-2 border-white text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-white hover:text-black hover:border-black transition-all duration-300 shadow-lg opacity-0 group-hover:opacity-100"
-          type="button"
-          aria-label="Next slide">
-           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </button>
-      </div>
-
-      <div class="splide__track py-12 px-8">
-        <ul class="splide__list">
-          {
-            [
-              {
-                title: "Kemnaker Skillhub",
-                img: "/work/skillhub.png",
-                code: null,
-                demo: "https://skillhub.kemnaker.go.id/"
-              },
-              {
-                title: "Kemnaker Karirhub",
-                img: "/work/karirhub.png",
-                code: null,
-                demo: "https://karirhub.kemnaker.go.id/"
-              },
-              {
-                title: "Kerjoo.com",
-                img: "/work/kerjoo.png",
-                code: null,
-                demo: "https://kerjoo.com/"
-              },
-               {
-                title: "Lika.id",
-                img: "/work/lika.png",
-                code: null,
-                demo: "https://lika.id/"
-              },
-               {
-                title: "Mauren.id",
-                img: "/work/mauren.png",
-                code: null,
-                demo: "https://mauren.id/"
-              }
-            ].map((project) => (
-              <li class="splide__slide">
-                <div class="h-full bg-eagle border-2 border-black rounded-2xl overflow-hidden flex flex-col shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
-                  <div class="aspect-video w-full border-b-2 border-black overflow-hidden relative group">
-                    <img
-                      src={project.img}
-                      alt={project.title}
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                  </div>
-                  
-                  <div class="p-5 flex flex-col flex-grow bg-white">
-                    <h4 class="text-lg font-display font-bold text-black uppercase leading-tight mb-4 flex-grow line-clamp-2">
-                      {project.title}
-                    </h4>
-                    
-                    <div class="flex justify-start mt-auto">
-                      <a
-                          href={project.demo}
-                          target="_blank"
-                          class="flex items-center justify-center gap-2 px-4 py-2 text-sm font-bold bg-carrot text-white border-2 border-black rounded-lg hover:bg-white hover:text-black transition-colors uppercase tracking-wider w-full"
-                        >
-                          Visit Site
-                        </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-  </div>
-</section>
-
-<style>
-  .splide__pagination {
-    bottom: -0.5rem;
-    padding-bottom: 1.5rem;
-  }
-  .splide__pagination__page {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(0,0,0,0.1);
-  }
-  .splide__pagination__page.is-active {
-    background: #fff;
-    transform: scale(1.2);
-    border: 1px solid black;
-  }
-</style>

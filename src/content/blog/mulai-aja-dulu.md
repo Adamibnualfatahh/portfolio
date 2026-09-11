@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: Mulai Aja Dulu...
 slug: mulai-aja-dulu
 description: Cerita konyol tentang gimana ketakutan nge-gym bisa berubah jadi hobi cuma gara-gara kejebak marketing dan gengsi sama pacar.

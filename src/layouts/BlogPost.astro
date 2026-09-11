@@ -29,6 +29,11 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
 }) : '';
 ---
 <BaseLayout title={`Adam Ibnu | ${title}`} description={description}>
+    <!-- Reading progress bar -->
+    <div id="reading-progress-track" class="fixed top-0 left-0 right-0 z-[60] h-1 bg-white/10 lg:top-0">
+        <div id="reading-progress-bar" class="h-full bg-carrot" style="width:0%"></div>
+    </div>
+
     <section class="border-white border-e border-l">
         <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
             {heroImage && (
@@ -339,4 +344,124 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
     progressTrack.addEventListener('touchmove', e => seekTo(e.touches[0].clientX), { passive: true });
 
     document.addEventListener('astro:before-swap', () => speechSynthesis.cancel());
+</script>
+
+<style is:global>
+    .code-block-wrapper {
+        position: relative;
+        margin: 1.5em 0;
+    }
+    .code-block-wrapper pre {
+        margin: 0 !important;
+        padding-right: 2.75rem !important;
+    }
+    .code-copy-btn {
+        position: absolute;
+        top: 0.4rem;
+        right: 0.4rem;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0;
+        color: #e5e5e5;
+        background: rgba(255,255,255,0.1);
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.15s, background 0.15s, color 0.15s;
+    }
+    .code-block-wrapper:hover .code-copy-btn,
+    .code-copy-btn:focus-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .code-copy-btn:hover {
+        background: rgba(255,255,255,0.2);
+        color: #fff;
+    }
+    .code-copy-btn.copied {
+        color: #22c55e;
+        opacity: 1;
+        visibility: visible;
+    }
+    .code-copy-btn svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+    }
+    @media (hover: none) {
+        .code-copy-btn {
+            opacity: 0.6;
+            visibility: visible;
+        }
+    }
+</style>
+
+<script>
+    /* ── Reading progress bar ── */
+    function updateReadingProgress() {
+        const bar = document.getElementById('reading-progress-bar');
+        if (!bar) return;
+        const doc = document.documentElement;
+        const scrollTop = window.scrollY;
+        const scrollHeight = doc.scrollHeight - window.innerHeight;
+        const pct = scrollHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100)) : 0;
+        (bar as HTMLElement).style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateReadingProgress, { passive: true });
+    window.addEventListener('resize', updateReadingProgress);
+    document.addEventListener('astro:page-load', updateReadingProgress);
+    updateReadingProgress();
+
+    /* ── Copy-to-clipboard for code blocks ── */
+    const COPY_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+    const CHECK_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+    function initCodeCopyButtons() {
+        const blocks = document.querySelectorAll('.prose pre');
+        blocks.forEach((pre) => {
+            if (pre.parentElement?.classList.contains('code-block-wrapper')) return; // avoid duplicates
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-block-wrapper';
+            pre.parentNode?.insertBefore(wrapper, pre);
+            wrapper.appendChild(pre);
+
+            const btn = document.createElement('button');
+            btn.className = 'code-copy-btn';
+            btn.type = 'button';
+            btn.setAttribute('aria-label', 'Copy code to clipboard');
+            btn.innerHTML = COPY_ICON;
+
+            btn.addEventListener('click', async () => {
+                const code = pre.querySelector('code');
+                const text = code ? (code as HTMLElement).innerText : pre.textContent || '';
+                try {
+                    await navigator.clipboard.writeText(text);
+                } catch {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                }
+                btn.innerHTML = CHECK_ICON;
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerHTML = COPY_ICON;
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+
+            wrapper.appendChild(btn);
+        });
+    }
+    initCodeCopyButtons();
+    document.addEventListener('astro:page-load', initCodeCopyButtons);
 </script>

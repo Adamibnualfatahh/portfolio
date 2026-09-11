@@ -2,6 +2,7 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import Footer from "@/components/global/Footer.astro";
+import BackToTop from "@/components/global/BackToTop.astro";
 export const prerender = true;
 
 export interface Props {
@@ -29,11 +30,18 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body class="mx-auto bg-black 2xl:max-w-7xl">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-black focus:outline-none focus:ring-2 focus:ring-carrot"
+    >
+      Skip to main content
+    </a>
     <Navigation />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
+    <BackToTop />
     <script>
       import Lenis from 'lenis'
 

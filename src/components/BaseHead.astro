@@ -21,14 +21,14 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <AstroSeo
   title={title}
   description={description}
-  canonical={`https://www.adamibnu.dev${Astro.url.pathname}`}
+  canonical={`https://adamibnu.my.id${Astro.url.pathname}`}
   openGraph={{
     url: Astro.url.href,
     title: title,
     description: description,
     images: [
       {
-        url: `https://www.adamibnu.dev${image}`,
+        url: `https://adamibnu.my.id${image}`,
         alt: title,
       },
     ],
@@ -41,7 +41,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
     card: "summary_large_image",
     title: title,
     description: description,
-    image: `https://www.adamibnu.dev${image}`,
+    image: `https://adamibnu.my.id${image}`,
   }}
 />
 <meta charset="UTF-8">

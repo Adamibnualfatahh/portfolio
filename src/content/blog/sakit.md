@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: Sakit
 slug: sakit
 description: Sedikit kisah perjuanganku melawan rasa sakit yang entah apa dan kapan aku bisa menyudahi, dan gimana akhirnya aku berdamai sama kondisiku sendiri.

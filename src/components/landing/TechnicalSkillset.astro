@@ -1,65 +1,103 @@
-<section class="border-white border-b">
-  <div class="mx-auto border-white border-x max-w-7xl">
-    <div class="p-8 lg:p-12">
-      <p class="text-white font-display uppercase text-3xl lg:text-6xl text-center md:text-left">
-        Technical Skillset
+---
+const capabilities = [
+  {
+    number: "01",
+    title: "Backend Engineering",
+    description:
+      "Building and maintaining production backend services for SaaS platforms and business-critical workflows.",
+    skills: ["PHP", "Laravel", "Go", "Node.js", "Bun", "Express.js", "Python"],
+  },
+  {
+    number: "02",
+    title: "API & Architecture",
+    description:
+      "Designing scalable integrations, real-time capabilities, and service boundaries for distributed products.",
+    skills: ["REST APIs", "Microservices", "WebSocket", "Socket.IO", "OpenAPI", "Swagger"],
+  },
+  {
+    number: "03",
+    title: "Frontend & Mobile",
+    description:
+      "Delivering responsive web and mobile experiences while staying effective across the full product stack.",
+    skills: ["TypeScript", "JavaScript", "React", "Next.js", "Vue.js", "React Native", "Flutter", "Astro", "Tailwind CSS"],
+  },
+  {
+    number: "04",
+    title: "Data & Messaging",
+    description:
+      "Working with transactional data, caching, search, and event-driven communication across product domains.",
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Redis", "SQLite", "Kafka", "Algolia", "Drizzle ORM"],
+  },
+  {
+    number: "05",
+    title: "Cloud & Infrastructure",
+    description:
+      "Operating backend workloads on Linux-based environments with practical deployment and cloud experience.",
+    skills: ["Docker", "Nginx", "Unix/Linux", "VPS", "Alibaba Cloud", "AWS/S3", "Cloudflare", "CI/CD"],
+  },
+  {
+    number: "06",
+    title: "Quality & Observability",
+    description:
+      "Protecting reliability through automated tests, monitoring, documentation, and collaborative engineering practices.",
+    skills: ["Git", "Unit Testing", "PHPUnit", "Jest", "Vitest", "Sentry", "Code Review", "API Documentation"],
+  },
+];
+---
+
+<section class="border-b border-white bg-black" aria-labelledby="technical-skillset-title">
+  <div class="mx-auto max-w-7xl border-x border-white">
+    <header class="grid gap-6 border-b border-white p-6 md:grid-cols-[1fr_auto] md:items-end lg:p-12">
+      <div class="max-w-4xl">
+        <p class="mb-3 font-mono text-xs uppercase tracking-[0.24em] text-carrot">
+          Capabilities &amp; expertise
+        </p>
+        <h2
+          id="technical-skillset-title"
+          class="font-display text-3xl uppercase leading-none text-white md:text-5xl lg:text-7xl"
+        >
+          Technical Skillset
+        </h2>
+      </div>
+      <p class="max-w-sm text-sm leading-6 text-eagle md:text-right">
+        A backend-first toolkit shaped by production SaaS, real-time systems, and end-to-end product delivery.
       </p>
-    </div>
-    <div class="text-white text-sm gap-y-8 gap-8 mx-auto px-6 pb-12 md:pb-6 md:px-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-      <div class="mb-0 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 text-center border border-white/10 md:border-none">
-        <div>
-          <span class="text-white font-display text-xl inline-block mb-4">Languages</span>
-        </div>
-        <ul class="text-eagle font-bold space-y-2">
-          <li>JavaScript</li>
-          <li>PHP</li>
-          <li>Golang</li>
-          <li>Python</li>
-          <li>Dart</li>
-          <li>TypeScript</li>
-        </ul>
-      </div>
-      <div class="mb-0 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 text-center border border-white/10 md:border-none">
-        <div>
-          <span class="text-white font-display text-xl inline-block mb-4">Backend</span>
-        </div>
-        <ul class="text-eagle font-bold space-y-2">
-          <li>Laravel</li>
-          <li>NodeJS</li>
-          <li>ExpressJS</li>
-          <li>Bun</li>
-          <li>PostgreSQL</li>
-          <li>MySQL</li>
-          <li>MongoDB</li>
-          <li>NestJS</li>
-        </ul>
-      </div>
-      <div class="mb-0 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 text-center border border-white/10 md:border-none">
-        <div>
-          <span class="text-white font-display text-xl inline-block mb-4">Frontend</span>
-        </div>
-        <ul class="text-eagle font-bold space-y-2">
-          <li>ReactJS</li>
-          <li>NextJS</li>
-          <li>VueJS</li>
-          <li>Flutter</li>
-          <li>TailwindCSS</li>
-          <li>Bootstrap</li>
-          <li>Vite</li>
-          <li>Webpack</li>
-        </ul>
-      </div>
-      <div class="mb-0 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 text-center border border-white/10 md:border-none">
-        <div>
-          <span class="text-white font-display text-xl inline-block mb-4">Other</span>
-        </div>
-        <ul class="text-eagle font-bold space-y-2">
-          <li>Git</li>
-          <li>Unix</li>
-          <li>CI/CD</li>
-          <li>Figma</li>
-        </ul>
-      </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      {
+        capabilities.map((capability, index) => (
+          <article
+            class:list={[
+              "group relative flex min-h-80 flex-col border-white p-6 transition-colors duration-300 hover:bg-white/[0.04] lg:p-10",
+              index % 2 === 0 && "md:border-r",
+              index < capabilities.length - 2 && "border-b",
+              index === capabilities.length - 2 && "border-b md:border-b-0",
+            ]}
+          >
+            <div class="mb-10 flex items-start justify-between gap-4">
+              <h3 class="max-w-sm font-display text-2xl uppercase leading-tight text-white lg:text-3xl">
+                {capability.title}
+              </h3>
+              <span class="font-mono text-xs tracking-[0.2em] text-carrot" aria-hidden="true">
+                /{capability.number}
+              </span>
+            </div>
+
+            <p class="mb-8 max-w-lg text-sm leading-6 text-eagle">
+              {capability.description}
+            </p>
+
+            <ul class="mt-auto flex flex-wrap gap-2" aria-label={`${capability.title} technologies`}>
+              {capability.skills.map((skill) => (
+                <li class="border border-white/20 bg-white/[0.03] px-3 py-2 font-mono text-xs uppercase tracking-wider text-white transition-colors duration-200 group-hover:border-white/40">
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>

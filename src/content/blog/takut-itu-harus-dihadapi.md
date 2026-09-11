@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: Takut Itu Harus Dihadapi
 slug: takut-itu-harus-dihadapi
 description: Menghadapi ketakutan di dunia kerja, pendidikan, dan kehidupan sebagai introvert.
