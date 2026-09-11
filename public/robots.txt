@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adamibnu.my.id/sitemap-index.xml
+Sitemap: https://www.adamibnu.my.id/sitemap-index.xml
