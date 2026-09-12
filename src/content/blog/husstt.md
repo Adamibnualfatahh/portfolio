@@ -13,8 +13,6 @@ tags:
   - Self-Improvement
 readDuration: 5
 ---
-## Husstt…
-
 Hai, kamu! Iya, kamu yang lagi scrolling sambil ngerasa capek sama semua noise di sekitar. Yuk, duduk sebentar, tarik napas dalam, dan… husstt… biarin semuanya hening sejenak.
 
 Kita mulai ya. Kamu sering denger kata “introvert” nggak sih? Biasanya sih langsung kebayang seseorang yang diem aja, nunduk kalau di tempat umum, atau cuma ngomong seperlunya. Tapi tau nggak? Sebenarnya jadi introvert itu nggak sekaku itu kok. Kita nggak anti-sosial atau nggak bisa ngomong, kita cuma lebih pilih-pilih kapan dan dengan siapa mau berbagi waktu dan energi.

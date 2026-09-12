@@ -15,8 +15,6 @@ tags:
 readDuration: 4
 ---
 
-# Mulai Aja Dulu...
-
 Jujur aja, dulu kalau denger kata "gym", bayangan gue itu langsung serem. Isinya pasti cowok-cowok berotot gede yang kalau ngangkat beban suaranya kayak lagi perang, atau cewek-cewek fit yang pake outfit *matching* dari atas sampe bawah. Buat gue yang waktu itu masih awam dan ngerasa badan nggak _form_ sama sekali, gym itu tempat yang paling intimidatif. Rasanya kayak masuk ke kandang singa padahal kita cuma kucing kampung yang nyasar.
 
 Tapi ya, namanya hidup, jalannya emang suka aneh-aneh.

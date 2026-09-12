@@ -14,8 +14,6 @@ tags:
 readDuration: 6
 ---
 
-# Validasi Cukup Dari Diri Sendiri
-
 Pernah nggak sih lo ngerasa udah kerja keras banget, tapi rasanya hampa cuma karena nggak ada yang muji? Atau mungkin, lo posting sesuatu yang menurut lo keren, terus ngecek HP tiap lima menit cuma buat liat jumlah like-nya nambah apa nggak.
 
 Gue pernah, dan sering banget, ada di posisi itu.

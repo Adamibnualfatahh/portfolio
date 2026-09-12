@@ -9,18 +9,18 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 auto-rows-[250px] p-0 md:p-4">
+<div id="blog-grid" class="grid auto-rows-[280px] grid-cols-1 gap-3 p-0 md:auto-rows-[250px] md:grid-cols-3 md:gap-4 md:p-4">
   {posts.map((post, i) => (
-    <a href={`/blog/${post.slug}`} class={`
+    <a data-blog-card data-tags={post.data.tags?.join(',').toLowerCase()} href={`/blog/${post.slug}`} class={`
       group relative overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800
-      hover:border-carrot transition-all duration-500 ease-out
+      hover:border-carrot transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-carrot
       ${i === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1 md:row-span-1'}
     `}>
       <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
       
-      <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+      <div class="absolute bottom-0 left-0 z-20 w-full p-6 md:p-8">
         <div class="flex items-center gap-2 mb-2 text-xs text-carrot font-mono uppercase tracking-wider">
-          <span>{post.data.publishDate.toLocaleDateString()}</span>
+          <span>{post.data.publishDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
         <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2 leading-tight group-hover:text-carrot transition-colors">
             {post.data.title}
@@ -30,8 +30,6 @@ const { posts } = Astro.props;
         </p>
       </div>
 
-      <!-- Background Decoration -->
-      <!-- Background Decoration -->
       <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 bg-neutral-800">
          {post.data.heroImage ? (
              <Image 
@@ -39,7 +37,7 @@ const { posts } = Astro.props;
                alt={post.data.title} 
                width={800}
                height={600}
-               loading={i <= 2 ? "eager" : "lazy"}
+               loading={i === 0 ? "eager" : "lazy"}
                class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
              />
          ) : (

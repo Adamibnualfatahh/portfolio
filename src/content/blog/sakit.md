@@ -15,8 +15,6 @@ tags:
 readDuration: 6
 ---
 
-# Sakit
-
 *09 Juli 2026, Pukul 13.44, di kerjaku dan mati lampu.*
 
 Nulis ini bukan karena aku lagi di kondisi terbaik. Justru sebaliknya.

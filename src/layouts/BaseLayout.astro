@@ -20,7 +20,6 @@ const { title, description } = Astro.props;
     <meta charset="utf-8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
     <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-5FBMPNZEED"></script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
@@ -39,24 +38,12 @@ const { title, description } = Astro.props;
       Skip to main content
     </a>
     <Navigation />
-    <main id="main-content">
+    <main id="main-content" class="lg:pt-[50px]">
       <slot />
     </main>
     <Footer />
     <BackToTop />
     <SpeedInsights />
     <Analytics />
-    <script>
-      import Lenis from 'lenis'
-
-      const lenis = new Lenis()
-
-      function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
-
-      requestAnimationFrame(raf)
-    </script>
   </body>
 </html>

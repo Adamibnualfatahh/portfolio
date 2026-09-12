@@ -14,8 +14,6 @@ tags:
 readDuration: 6
 ---
 
-# Takut Itu Harus Dihadapi
-
 Pernah nggak sih kamu ngerasa takut? Hahaha, tentu aja pernah. Kita semua pasti pernah! Tapi, di dunia ini, ada yang bilang kalau takut itu bukan buat dihindari, tapi justru dihadapi. Nah, sebagai seseorang yang sering dibilang "pendiam" dan "introvert" (wkwk, padahal kadang pengen banget teriak), aku juga nggak terlepas dari ketakutan ini. Terutama di dunia kerja, dunia pendidikan, dan kehidupan nyata yang makin nggak bisa diprediksi.
 
 Yuk, kita bahas gimana sih aku – yang katanya introvert banget (wkwk) – menghadapi ketakutan dalam berbagai aspek kehidupan. Siapa tahu bisa menginspirasi kamu yang lagi merasa takut sama tantangan yang ada di depan mata.

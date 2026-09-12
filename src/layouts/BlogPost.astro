@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Disqus from "../components/global/Disqus.astro";
-import {AstroSeo} from "@astrolib/seo";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 export const prerender = true;
 
 export interface Props {
@@ -27,6 +27,10 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
     day: 'numeric',
     timeZone: 'Asia/Jakarta'
 }) : '';
+const morePosts = (await getCollection('blog'))
+    .filter((post) => post.slug !== slug)
+    .sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())
+    .slice(0, 3);
 ---
 <BaseLayout title={`Adam Ibnu | ${title}`} description={description}>
     <!-- Reading progress bar -->
@@ -34,28 +38,47 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
         <div id="reading-progress-bar" class="h-full bg-carrot" style="width:0%"></div>
     </div>
 
-    <section class="border-white border-e border-l">
-        <div class="mx-auto max-w-3xl hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-gray-500 prose-code:text-black prose-headings:font-bold prose-headings:text-white prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-gray-200 py-24 prose-pre:border">
+    <section class="border-b border-white bg-black">
+        <article lang="id" class="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-24">
+            <a href="/blogs" class="mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-eagle transition-colors hover:text-carrot">← All stories</a>
             {heroImage && (
-                <Image src={heroImage} alt={title} class="rounded-sm min-w-full px-4 sm:px-0" loading="eager" />
+                <Image src={heroImage} alt={title} class="aspect-[16/9] w-full border border-white/20 object-cover" loading="eager" />
             )}
-            <div class="flex flex-col sm:flex-row justify-between items-center -mt-4 sm:-mt-10 mb-4 sm:mb-0">
-                <p class="font-light text-sm sm:text-base mb-2 sm:mb-0">{formattedPublishDate} {readDuration ? ' | ' + readDuration + ' minute(s) read' : ''}</p>
-                <p class="font-light text-right">{typeof author === 'string' ? author : author?.name}</p>
-            </div>
-            <div class="sm:py-2 px-4 sm:px-0">
-                <p class="font-bold text-3xl mt-2">{title}</p>
-                <p class="-mt-2 text-gray-500">{description}</p>
-                <div class="flex flex-wrap gap-3 mt-4 -mb-2">
-                    {tags?.map((tag, index) => (
-                        <span key={index} class="rounded py-1 px-2 text-xs capitalize duration-300 bg-gray-300 text-black">{tag}</span>
+            <header class="border-b border-white/20 py-8 md:py-10">
+                <div class="mb-5 flex flex-wrap gap-2">
+                    {tags?.map((tag) => (
+                        <span class="border border-white/20 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-carrot">{tag}</span>
                     ))}
                 </div>
-                <hr>
+                <h1 class="font-display text-4xl uppercase leading-[0.95] text-white md:text-6xl">{title}</h1>
+                <p class="mt-5 text-base leading-7 text-eagle">{description}</p>
+                <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-white/70">
+                    <span>{formattedPublishDate}</span>
+                    {readDuration && <span>{readDuration} min read</span>}
+                    <span>{typeof author === 'string' ? author : author?.name}</span>
+                </div>
+            </header>
+            <div class="article-body prose prose-invert mt-10 max-w-none prose-a:text-carrot prose-blockquote:border-l-carrot prose-blockquote:text-eagle prose-code:text-carrot prose-headings:font-display prose-headings:uppercase prose-headings:tracking-tight prose-li:marker:text-carrot prose-pre:border prose-pre:border-white/20">
                 <slot/>
             </div>
-        </div>
-        <div class="px-4 sm:px-0">
+        </article>
+
+        <section class="mx-auto max-w-5xl border-y border-white px-5 py-10 md:px-8" aria-labelledby="keep-reading-title">
+            <div class="mb-6 flex items-end justify-between">
+                <h2 id="keep-reading-title" class="font-display text-2xl uppercase text-white md:text-3xl">Keep reading</h2>
+                <a href="/blogs" class="font-mono text-xs uppercase tracking-[0.16em] text-eagle hover:text-carrot">All stories ↗</a>
+            </div>
+            <div class="grid gap-px bg-white/20 md:grid-cols-3">
+                {morePosts.map((post) => (
+                    <a href={`/blog/${post.slug}`} class="group flex min-h-44 flex-col justify-between bg-accent-500 p-5 transition-colors hover:bg-white">
+                        <span class="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-carrot">{post.data.publishDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                        <span class="font-display text-xl uppercase leading-tight text-white transition-colors group-hover:text-black">{post.data.title}</span>
+                    </a>
+                ))}
+            </div>
+        </section>
+
+        <div class="mx-auto max-w-3xl px-5 md:px-8">
             <Disqus/>
         </div>
     </section>
@@ -112,7 +135,7 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
                     <path d="M8 5v14l11-7z"/>
                 </svg>
             </button>
-            <button id="btn-speed" class="w-10 h-10 rounded-full hover:bg-gray-100 text-xs font-bold text-gray-500 hover:text-black flex items-center justify-center" style="transition:color 0.15s,background 0.15s">1x</button>
+            <button id="btn-speed" aria-label="Ubah kecepatan membaca" class="w-10 h-10 rounded-full hover:bg-gray-100 text-xs font-bold text-gray-500 hover:text-black flex items-center justify-center" style="transition:color 0.15s,background 0.15s">1x</button>
         </div>
     </div>
 </BaseLayout>
@@ -174,27 +197,13 @@ const formattedPublishDate = publishDate ? new Date(publishDate).toLocaleDateStr
         voice = v;
     }
 
-    /* ── Extract article body (after first <hr>) ── */
+    /* ── Extract article body ── */
     function getText(): string {
-        const prose = document.querySelector('.prose');
+        const prose = document.querySelector('.article-body');
         if (!prose) return '';
         const clone = prose.cloneNode(true) as HTMLElement;
-        clone.querySelectorAll('img,button,.flex.flex-wrap,p.font-bold,p.-mt-2,p.font-light').forEach(e => e.remove());
-        const hr = clone.querySelector('hr');
-        let raw = '';
-        if (hr) {
-            const tmp = document.createElement('div');
-            let n = hr.nextSibling;
-            while (n) { tmp.appendChild(n.cloneNode(true)); n = n.nextSibling; }
-            raw = tmp.innerText;
-        } else {
-            raw = clone.innerText;
-        }
-        return raw
-            .replace(/#{1,6} /g, '')
-            .replace(/\*+|_+/g, '')
-            .replace(/`[^`]*`/g, '')
-            .replace(/---+/g, '. ')
+        clone.querySelectorAll('img,button,pre,code').forEach(e => e.remove());
+        return clone.innerText
             .replace(/wkwk+/gi, 'haha')
             .replace(/[^\w\s.,!?;:'"()-]/g, ' ')
             .replace(/\s+/g, ' ').trim();

@@ -14,8 +14,6 @@ tags:
 readDuration: 5
 ---
 
-# Cara Install Composer
-
 ## Pendahuluan
 
 Composer adalah manajer paket untuk PHP yang mempermudah pengelolaan dependensi dalam proyek PHP. Dengan Composer, Anda dapat dengan mudah mengelola library dan alat yang dibutuhkan proyek PHP Anda.
@@ -108,5 +106,4 @@ Anda telah berhasil menginstal Composer di sistem Anda. Anda sekarang dapat meng
 ## Sumber
 
 <a href = "https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04" style="color: orangered"> Digital Ocean </a>
-
 

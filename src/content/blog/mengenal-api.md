@@ -13,8 +13,6 @@ tags:
 readDuration: 6
 ---
 
-# Apa Itu API Dan Bagaimana Cara Kerja API?
-
 ## Pengertian
 API adalah sekumpulan definisi dan protokol untuk membangun dan mengintegrasikan perangkat lunak aplikasi. API adalah singkatan dari antarmuka pemrograman aplikasi `(Application Programming Interface).` API memungkinkan produk atau layanan Anda berkomunikasi dengan produk dan layanan lain tanpa harus tahu bagaimana penerapannya.
 

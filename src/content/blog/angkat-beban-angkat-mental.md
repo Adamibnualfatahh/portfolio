@@ -14,8 +14,6 @@ tags:
 readDuration: 6
 ---
 
-# Angkat Beban, Angkat Mental
-
 Dulu, gue pikir nge-gym itu cuma buat orang-orang yang mau gedein badan. Titik. Tujuannya cuma satu: ngebentuk otot, naikin massa tubuh, biar kelihatan lebih "berisi". Pola pikir gue sesederhana itu. Kalau mau sehat, ya lari. Kalau mau kuat, baru ke gym.
 
 Awalnya, gue juga masuk ke gym dengan alasan klasik itu pengen lebih PD dengan postur tubuh, pengen baju kelihatan lebih pas. Setiap sesi rasanya berat, badan sakit di mana-mana, dan fokusnya cuma soal nuntasin set dan repetisi. Fisik doang yang jadi ukuran.

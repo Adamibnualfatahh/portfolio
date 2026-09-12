@@ -14,8 +14,6 @@ tags:
 readDuration: 7
 ---
 
-# Balancing Hustle: Kerja Sambil Kuliah, Gimana Sih Biar Tetap Waras?
-
 Hai kamu yang lagi juggling antara pekerjaan dan kuliah. Pernah nggak sih, ngerasa dunia ini seolah nggak cukup punya 24 jam sehari buat kamu? Dari satu meeting ke kelas online, terus ada deadline tugas kampus dan laporan kerja yang sama-sama nunggu di depan mata. Rasanya kayak semua hal datang sekaligus, dan kamu harus siap dengan segala strategi untuk menghadapi dua dunia ini tanpa kewalahan.
 
 Tapi, hey, tenang. Kamu nggak sendirian kok. Banyak banget dari kita yang ngalamin hal serupa. Pertanyaannya, gimana caranya biar tetap waras, produktif, dan nggak kehilangan semangat? Yuk, kita bahas cara nge-balance hustle antara kerja dan kuliah tanpa harus mengorbankan kesehatan mental.

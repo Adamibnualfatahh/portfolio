@@ -13,8 +13,6 @@ tags:
   - Self-Improvement  
 readDuration: 5  
 ---
-## Menjadi Manusia Cuek
-
 Hai kamu yang lagi sibuk ngerjain tugas atau kerjaan sambil sesekali ngecek HP buat lihat notifikasi yang nggak penting-penting amat wkwk. Pernah nggak sih kamu ngerasa hidup ini berisik banget? Rasanya semua orang berlomba-lomba minta perhatian kamu, mulai dari urusan kerja, kuliah, sampai drama-drama kecil di media sosial yang bikin kepala tambah pusing. Tapi.., ada kabar baik nih jadi cuek itu bisa jadi solusi.
 
 Eits, tunggu dulu, jangan salah paham. Cuek di sini bukan berarti nggak peduli sama sekali ya. Bukan berarti kita hidup tanpa empati atau nggak memikirkan orang lain. Tapi lebih ke bagaimana kita memilih untuk nggak terpengaruh sama hal-hal yang cuma buang-buang energi dan nggak bermanfaat buat kita.

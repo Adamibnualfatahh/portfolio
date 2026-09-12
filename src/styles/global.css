@@ -16,11 +16,10 @@
 
 @font-face {
   font-family: "Basement";
-  src: url("../fonts/BSBlack.eot");
-  src: url("../fonts/BSBlack.eot");
-  src: url("../fonts/BSBlack.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/BSBlack.woff2") format("woff2"),
-    url("../fonts/BSBlack.woff") format("woff");
+  src: url("/fonts/BSBlack.eot");
+  src: url("/fonts/BSBlack.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/BSBlack.woff2") format("woff2"),
+    url("/fonts/BSBlack.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -49,7 +48,11 @@
   background: #555;
 }
 
-/* Micro-interactions */
-a {
-  transition: all 0.2s ease-in-out;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

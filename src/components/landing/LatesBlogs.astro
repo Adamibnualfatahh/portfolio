@@ -4,21 +4,54 @@ import BentoGrid from "@/components/landing/BentoGrid.astro";
 const posts = (await getCollection('blog')).sort(
     (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
 );
+const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))].sort();
 ---
-<section class="border-white border-b border-e border-l bg-accent-500">
-  <div class="mx-auto border-white border-x px-8 py-12 gradient-grid">
-    <div class="mx-auto">
-      <h2 class="text-white font-display uppercase text-3xl lg:text-6xl pt-6">
+<section class="border-b border-white bg-accent-500">
+  <div class="gradient-grid mx-auto max-w-7xl border-x border-white px-6 py-16 md:px-10 lg:px-12 lg:py-24">
+    <div class="max-w-4xl">
+      <p class="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-carrot">Journal / {posts.length} stories</p>
+      <h1 class="font-display text-4xl uppercase leading-[0.92] text-white sm:text-5xl lg:text-7xl">
         Scroll. Read. Smile. Repeat.
-      </h2>
+      </h1>
+      <p class="mt-6 max-w-2xl text-sm leading-7 text-eagle md:text-base">
+        Notes about engineering, work, growth, and the wonderfully messy parts of everyday life.
+      </p>
     </div>
   </div>
 </section>
 
-<section class="border-white border-b border-e border-l">
-  <div class="p-4 lg:p-10">
-    <div class="mx-auto">
+<section class="border-b border-white bg-black">
+  <div class="mx-auto max-w-7xl border-x border-white">
+    <div class="border-b border-white px-4 py-5 md:px-8">
+      <div class="flex gap-2 overflow-x-auto pb-1" aria-label="Filter artikel">
+        <button type="button" data-blog-filter="all" aria-pressed="true" class="shrink-0 border border-carrot bg-carrot px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white">All</button>
+        {tags.map((tag) => (
+          <button type="button" data-blog-filter={tag.toLowerCase()} aria-pressed="false" class="shrink-0 border border-white/30 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white transition-colors hover:border-white hover:bg-white hover:text-black">{tag}</button>
+        ))}
+      </div>
+    </div>
+    <div class="p-4 lg:p-6">
       <BentoGrid posts={posts} />
     </div>
   </div>
 </section>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-blog-filter]');
+  const blogCards = document.querySelectorAll<HTMLElement>('[data-blog-card]');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.blogFilter;
+      blogCards.forEach((card) => {
+        card.hidden = filter !== 'all' && !card.dataset.tags?.split(',').includes(filter ?? '');
+      });
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.setAttribute('aria-pressed', String(active));
+        item.classList.toggle('bg-carrot', active);
+        item.classList.toggle('border-carrot', active);
+      });
+    });
+  });
+</script>

@@ -16,6 +16,13 @@ import kerjooChat from "../../assets/work/kerjoo-chat.webp";
 import kerjooInvoice from "../../assets/work/kerjoo-invoice.png";
 import lika from "../../assets/work/lika.png";
 import mauren from "../../assets/work/mauren.png";
+import agentOfClean from "../../assets/work/agent-of-clean.webp";
+import kindboLab from "../../assets/work/kindbolab.webp";
+import soloShuttlecock from "../../assets/work/solo-shuttle.webp";
+import exploreSekipan from "../../assets/work/explore-sekipan.webp";
+import padel from "../../assets/work/padel.webp";
+import flower from "../../assets/work/flower.webp";
+import cargo from "../../assets/work/cargo.webp";
 
 const professionalProjects = [
   {
@@ -73,6 +80,38 @@ const professionalProjects = [
     img: mauren,
     demo: "https://mauren.id/",
     label: "Product Website",
+  },
+  {
+    title: "Agent of Clean",
+    description:
+      "A multi-brand care and cleaning platform for shoe, bag, and laundry services in Solo.",
+    img: agentOfClean,
+    demo: null,
+    label: "Service Platform",
+  },
+  {
+    title: "KindboLab",
+    description:
+      "A creative activity website for children with class registration, events, and editable content.",
+    img: kindboLab,
+    demo: null,
+    label: "Creative Education",
+  },
+  {
+    title: "Solo Shuttlecock",
+    description:
+      "A digital profile for the Serengan shuttlecock centre, its craft, community, and industrial tourism.",
+    img: soloShuttlecock,
+    demo: "https://soloshuttlecockvillage.com/",
+    label: "Community Platform",
+  },
+  {
+    title: "Explore Skipan",
+    description:
+      "A tourism information platform for destinations, events, galleries, local products, and reviews.",
+    img: exploreSekipan,
+    demo: null,
+    label: "Tourism Platform",
   },
 ];
 
@@ -159,11 +198,38 @@ const independentProjects = [
     demo: "https://image-to-text-sigma.vercel.app/",
     label: "Web Utility",
   },
+  {
+    title: "Padel Academy",
+    description:
+      "A responsive academy website with energetic motion, programs, facilities, coaches, and schedules.",
+    img: padel,
+    code: null,
+    demo: null,
+    label: "Sports Website",
+  },
+  {
+    title: "Flower",
+    description:
+      "An editorial floral shop experience with bento layouts, refined typography, and expressive motion.",
+    img: flower,
+    code: null,
+    demo: null,
+    label: "Editorial Commerce",
+  },
+  {
+    title: "Cargo",
+    description:
+      "A cargo management dashboard with interactive maps, AI-assisted workflows, and shipment tracking.",
+    img: cargo,
+    code: null,
+    demo: null,
+    label: "Logistics Platform",
+  },
 ];
 ---
 
 <section
-  class="border-b border-white bg-black pt-16 lg:pt-24"
+  class="border-b border-white bg-black"
   aria-labelledby="projects-title"
 >
   <div class="gradient-grid mx-auto max-w-7xl border-x border-white">
@@ -181,7 +247,7 @@ const independentProjects = [
       </div>
 
       <div>
-        <p class="text-sm leading-7 text-eagle">
+        <p class="text-sm leading-7 text-white/80">
           A selection of production platforms and independent experiments,
           shaped by backend engineering and end-to-end product delivery.
         </p>
@@ -197,7 +263,7 @@ const independentProjects = [
 
     <dl class="grid border-t border-white sm:grid-cols-3">
       <div class="border-b border-white px-6 py-6 sm:border-b-0 sm:border-r lg:px-10">
-        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-eagle">
+        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-white/75">
           Professional work
         </dt>
         <dd class="mt-2 font-display text-3xl text-white">
@@ -205,7 +271,7 @@ const independentProjects = [
         </dd>
       </div>
       <div class="border-b border-white px-6 py-6 sm:border-b-0 sm:border-r lg:px-10">
-        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-eagle">
+        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-white/75">
           Independent projects
         </dt>
         <dd class="mt-2 font-display text-3xl text-white">
@@ -213,7 +279,7 @@ const independentProjects = [
         </dd>
       </div>
       <div class="px-6 py-6 lg:px-10">
-        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-eagle">
+        <dt class="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-white/75">
           Core perspective
         </dt>
         <dd class="mt-3 text-sm font-semibold uppercase tracking-wider text-white">
@@ -242,7 +308,7 @@ const independentProjects = [
           Professional Work
         </h2>
       </div>
-      <p class="max-w-md text-sm leading-6 text-eagle md:text-right">
+      <p class="max-w-md text-sm leading-6 text-white/80 md:text-right">
         Production products delivered for government services, SaaS teams, and
         growing digital businesses.
       </p>
@@ -260,7 +326,7 @@ const independentProjects = [
             ]}
           >
             <a
-              href={project.demo}
+              href={project.demo ?? undefined}
               target="_blank"
               rel="noreferrer"
               class="relative block aspect-[16/10] overflow-hidden border-b border-white/20 bg-white/5"
@@ -294,18 +360,34 @@ const independentProjects = [
                   /{String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <p class="mb-8 max-w-xl text-sm leading-6 text-eagle">
+              <p class="mb-8 max-w-xl text-sm leading-6 text-white/80">
                 {project.description}
               </p>
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noreferrer"
-                class="mt-auto inline-flex items-center justify-between border-t border-white/20 pt-4 font-mono text-xs uppercase tracking-[0.18em] text-white hover:border-carrot hover:text-carrot"
-              >
-                Visit website
-                <span class="text-base" aria-hidden="true">↗</span>
-              </a>
+              <dl class="mb-8 grid grid-cols-2 gap-4 border-y border-white/20 py-4">
+                <div>
+                  <dt class="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white/70">Role</dt>
+                  <dd class="mt-2 text-xs font-semibold uppercase tracking-wider text-white">Backend &amp; product</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white/70">Focus</dt>
+                  <dd class="mt-2 text-xs font-semibold uppercase tracking-wider text-white">{project.label}</dd>
+                </div>
+              </dl>
+              {project.demo ? (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="mt-auto inline-flex items-center justify-between border-t border-white/20 pt-4 font-mono text-xs uppercase tracking-[0.18em] text-white hover:border-carrot hover:text-carrot"
+                >
+                  Visit website
+                  <span class="text-base" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <span class="mt-auto inline-flex items-center justify-between border-t border-white/20 pt-4 font-mono text-xs uppercase tracking-[0.18em] text-white/60">
+                  Case study available
+                </span>
+              )}
             </div>
           </article>
         ))
@@ -331,7 +413,7 @@ const independentProjects = [
           Independent Projects
         </h2>
       </div>
-      <p class="max-w-md text-sm leading-6 text-eagle md:text-right">
+      <p class="max-w-md text-sm leading-6 text-black/75 md:text-right">
         Focused experiments, open-source tools, and product ideas built from
         curiosity.
       </p>
@@ -342,7 +424,7 @@ const independentProjects = [
         independentProjects.map((project, index) => (
           <article class="group flex min-h-full flex-col bg-accent-500 p-4 transition-colors duration-300 hover:bg-[#151515] md:p-6">
             <a
-              href={project.demo ?? project.code}
+              href={project.demo ?? project.code ?? undefined}
               target="_blank"
               rel="noreferrer"
               class="relative block aspect-video overflow-hidden border border-white/20 bg-black"
@@ -371,20 +453,26 @@ const independentProjects = [
                   /{String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <p class="mb-6 text-sm leading-6 text-eagle">
+              <p class="mb-6 text-sm leading-6 text-black/75">
                 {project.description}
               </p>
 
               <div class="mt-auto grid grid-cols-2 gap-2 border-t border-white/20 pt-4">
-                <a
-                  href={project.code}
-                  target="_blank"
-                  rel="noreferrer"
-                  class="inline-flex items-center justify-center gap-2 border border-white/30 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white hover:border-white hover:bg-white hover:text-black"
-                >
-                  Source
-                  <span aria-hidden="true">↗</span>
-                </a>
+                {project.code ? (
+                  <a
+                    href={project.code}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center justify-center gap-2 border border-white/30 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white hover:border-white hover:bg-white hover:text-black"
+                  >
+                    Source
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <span class="inline-flex items-center justify-center border border-white/10 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/40">
+                    Source private
+                  </span>
+                )}
                 {project.demo ? (
                   <a
                     href={project.demo}
