@@ -1,5 +1,10 @@
-<div class="mx-auto max-w-3xl py-24">
-    <script src="https://giscus.app/client.js"
+<section class="mx-auto w-full max-w-3xl px-5 py-12 md:px-8 md:py-16" aria-labelledby="comments-title">
+    <div class="mb-5 flex items-end justify-between border-b border-white/20 pb-4">
+        <h2 id="comments-title" class="font-display text-2xl uppercase text-white md:text-3xl">Comments</h2>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/60">Giscus</span>
+    </div>
+    <div class="w-full overflow-hidden border border-white/20 bg-[#161616] p-4 md:p-6">
+    <script is:inline src="https://giscus.app/client.js"
             data-repo="Adamibnualfatahh/portfolio"
             data-repo-id="R_kgDOKziRHQ"
             data-category="Blog Post Comments"
@@ -10,9 +15,18 @@
             data-emit-metadata="0"
             data-input-position="top"
             data-theme="transparent_dark"
-            data-lang="en"
-            data-loading="lazy"
+            data-lang="id"
+            data-loading="eager"
             crossorigin="anonymous"
             async>
     </script>
-</div>
+    </div>
+</section>
+
+<style is:global>
+    .giscus,
+    .giscus-frame {
+        width: 100%;
+        max-width: 100%;
+    }
+</style>
