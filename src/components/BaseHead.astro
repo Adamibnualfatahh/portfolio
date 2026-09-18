@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
-import { AstroSeo } from "@astrolib/seo";
+import { getImage } from "astro:assets";
+import defaultImage from "../assets/default.png";
+import siteIcon from "../assets/nu.png";
 
 export interface Props {
 	title?: string;
@@ -11,42 +13,30 @@ export interface Props {
 const { 
   title = 'Adam Ibnu | Backend Developer',
   description = 'Backend Developer with over 4 years of experience. Specializing in crafting robust backend systems and APIs.',
-  image = '/default.png'
+  image
 } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image ?? (await getImage({ src: defaultImage, width: 1200, format: 'webp' })).src, Astro.site);
+const [icon32, icon16, appleIcon] = await Promise.all([32, 16, 180].map(width => getImage({ src: siteIcon, width, height: width, format: 'png' })));
 ---
 
-<!---
-Use AstroSeo in all the pages you want different Seo than the index page
--->
-<AstroSeo
-  title={title}
-  description={description}
-  canonical={`https://www.adamibnu.my.id${Astro.url.pathname}`}
-  openGraph={{
-    url: Astro.url.href,
-    title: title,
-    description: description,
-    images: [
-      {
-        url: `https://www.adamibnu.my.id${image}`,
-        alt: title,
-      },
-    ],
-    site_name: "Adam Ibnu Alfatah",
-    type: "website",
-  }}
-  twitter={{
-    handle: "@adamibnu",
-    site: "@adamibnu",
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    image: `https://www.adamibnu.my.id${image}`,
-  }}
-/>
-<meta charset="UTF-8">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="Adam Ibnu Alfatah" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@adamibnu" />
+<meta name="twitter:creator" content="@adamibnu" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImage} />
+<link rel="preload" href="/fonts/BSBlack.woff2" as="font" type="font/woff2" crossorigin />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="author" content="Adam Ibnu Alfatah" />
 
@@ -62,28 +52,19 @@ Use AstroSeo in all the pages you want different Seo than the index page
 <link
   rel="apple-touch-icon"
   sizes="180x180"
-  href="/nu.png"
+  href={appleIcon.src}
 />
 <link
   rel="icon"
   type="image/png"
   sizes="32x32"
-  href="/nu.png"
+  href={icon32.src}
 />
 <link
   rel="icon"
   type="image/png"
   sizes="16x16"
-  href="/nu.png"
+  href={icon16.src}
 />
 <meta name="msapplication-TileColor" content="#ffffff" />
-<meta name="msapplication-TileImage" content="/nu.png" />
-<!-- HTML in your document's head -->
-<!--<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />-->
-
-<script type="text/partytown" src="/scripts/mailgo.min.js"></script>
-<script defer src="/scripts/alpine.min.js"
-></script>
-
-<!-- Remove analytics tag -->
-<script type="text/partytown" async src="https://us.umami.is/script.js" data-website-id="ac89ba30-db61-4fe7-8d7a-7c6e0a35d61c"></script>
+<meta name="msapplication-TileImage" content={appleIcon.src} />

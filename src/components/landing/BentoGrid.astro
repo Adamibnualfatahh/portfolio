@@ -11,7 +11,7 @@ const { posts } = Astro.props;
 
 <div id="blog-grid" class="grid auto-rows-[280px] grid-cols-1 gap-3 p-0 md:auto-rows-[250px] md:grid-cols-3 md:gap-4 md:p-4">
   {posts.map((post, i) => (
-    <a data-blog-card data-tags={post.data.tags?.join(',').toLowerCase()} href={`/blog/${post.slug}`} class={`
+    <a data-blog-card data-tags={post.data.tags?.join(',').toLowerCase()} href={`/blog/${post.id}`} class={`
       group relative overflow-hidden rounded-3xl bg-neutral-900 border border-neutral-800
       hover:border-carrot transition-all duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-carrot
       ${i === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1 md:row-span-1'}
@@ -22,9 +22,9 @@ const { posts } = Astro.props;
         <div class="flex items-center gap-2 mb-2 text-xs text-carrot font-mono uppercase tracking-wider">
           <span>{post.data.publishDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
         </div>
-        <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2 leading-tight group-hover:text-carrot transition-colors">
+        <h2 class="text-xl md:text-2xl font-display font-bold text-white mb-2 leading-tight group-hover:text-carrot transition-colors">
             {post.data.title}
-        </h3>
+        </h2>
         <p class="text-sm text-neutral-400 line-clamp-2">
             {post.data.description}
         </p>
@@ -37,6 +37,8 @@ const { posts } = Astro.props;
                alt={post.data.title} 
                width={800}
                height={600}
+               widths={[320, 480, 640, 800]}
+               sizes={i === 0 ? "(min-width: 1280px) 800px, (min-width: 768px) 65vw, calc(100vw - 64px)" : "(min-width: 1280px) 400px, (min-width: 768px) 33vw, calc(100vw - 64px)"}
                loading={i === 0 ? "eager" : "lazy"}
                class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
              />

@@ -6,7 +6,7 @@ const posts = (await getCollection('blog')).sort(
 );
 const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))].sort();
 ---
-<section class="border-b border-white bg-accent-500">
+<section class="border-b border-white bg-black">
   <div class="gradient-grid mx-auto max-w-7xl border-x border-white px-6 py-16 md:px-10 lg:px-12 lg:py-24">
     <div class="max-w-4xl">
       <p class="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-carrot">Journal / {posts.length} stories</p>
@@ -24,9 +24,9 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))].sort();
   <div class="mx-auto max-w-7xl border-x border-white">
     <div class="border-b border-white px-4 py-5 md:px-8">
       <div class="flex gap-2 overflow-x-auto pb-1" aria-label="Filter artikel">
-        <button type="button" data-blog-filter="all" aria-pressed="true" class="shrink-0 border border-carrot bg-carrot px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white">All</button>
+        <button type="button" data-blog-filter="all" aria-pressed="true" class="shrink-0 min-h-11 border border-carrot bg-carrot px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-black">All</button>
         {tags.map((tag) => (
-          <button type="button" data-blog-filter={tag.toLowerCase()} aria-pressed="false" class="shrink-0 border border-white/30 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white transition-colors hover:border-white hover:bg-white hover:text-black">{tag}</button>
+          <button type="button" data-blog-filter={tag.toLowerCase()} aria-pressed="false" class="shrink-0 min-h-11 border border-white/30 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white transition-colors hover:border-white hover:bg-white hover:text-black">{tag}</button>
         ))}
       </div>
     </div>
@@ -51,6 +51,8 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))].sort();
         item.setAttribute('aria-pressed', String(active));
         item.classList.toggle('bg-carrot', active);
         item.classList.toggle('border-carrot', active);
+        item.classList.toggle('text-black', active);
+        item.classList.toggle('text-white', !active);
       });
     });
   });

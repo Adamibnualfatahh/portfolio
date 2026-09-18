@@ -2,6 +2,9 @@
 ---
 <button
   id="back-to-top"
+  type="button"
+  tabindex="-1"
+  aria-hidden="true"
   aria-label="Kembali ke atas"
   class="fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-lg opacity-0 pointer-events-none translate-y-2 transition-all duration-200 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-carrot"
 >
@@ -15,15 +18,16 @@
 
   function toggleVisibility() {
     if (!btn) return;
-    if (window.scrollY > 400) {
-      btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
-    } else {
-      btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
-    }
+    const visible = window.scrollY > 400;
+    btn.classList.toggle('opacity-0', !visible);
+    btn.classList.toggle('pointer-events-none', !visible);
+    btn.classList.toggle('translate-y-2', !visible);
+    btn.tabIndex = visible ? 0 : -1;
+    btn.setAttribute('aria-hidden', String(!visible));
   }
 
   btn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   });
 
   window.addEventListener('scroll', toggleVisibility, { passive: true });

@@ -1,7 +1,5 @@
 ---
 import Banner from "@/components/landing/Banner.astro";
-import LatestBlogs from "@/components/landing/LatesBlogs.astro";
-import HeroBackground from "@/components/landing/HeroBackground.astro";
 import BentoGrid from "@/components/landing/BentoGrid.astro";
 import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
@@ -11,8 +9,7 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <section class="border-white border-b relative overflow-hidden">
-  <HeroBackground />
-  <div class="mx-auto border-white border-x max-w-7xl relative z-10">
+  <div class="mx-auto border-white border-x max-w-7xl">
     <div class="mx-auto">
       <div class="mx-auto lg:pt-28 gradient-grid px-8 py-12">
         <h1 class="text-white font-display uppercase text-3xl lg:text-7xl">

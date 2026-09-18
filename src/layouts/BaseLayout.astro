@@ -13,21 +13,13 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
+const isVercelDeployment = process.env.VERCEL === '1';
 ---
 <!DOCTYPE html>
-<html lang="en" class="selection:bg-carrot selection:text-white">
+<html lang="en" class="selection:bg-carrot selection:text-black">
   <head>
     <meta charset="utf-8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-5FBMPNZEED"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-5FBMPNZEED');
-    </script>
     <BaseHead title={title} description={description} />
   </head>
   <body class="mx-auto bg-black 2xl:max-w-7xl">
@@ -43,7 +35,30 @@ const { title, description } = Astro.props;
     </main>
     <Footer />
     <BackToTop />
-    <SpeedInsights />
-    <Analytics />
+    {isVercelDeployment && <SpeedInsights />}
+    {isVercelDeployment && <Analytics />}
+    <script>
+      // Load third-party tracking after the page has rendered and the browser is idle.
+      window.addEventListener('load', () => {
+        const loadAnalytics = () => {
+          const analyticsWindow = window as Window & { dataLayer?: IArguments[] };
+          analyticsWindow.dataLayer ??= [];
+          function gtag(..._args: unknown[]) { analyticsWindow.dataLayer!.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-5FBMPNZEED');
+          const google = document.createElement('script');
+          google.src = 'https://www.googletagmanager.com/gtag/js?id=G-5FBMPNZEED';
+          google.async = true;
+          document.head.appendChild(google);
+          const umami = document.createElement('script');
+          umami.src = 'https://cloud.umami.is/script.js';
+          umami.dataset.websiteId = 'ac89ba30-db61-4fe7-8d7a-7c6e0a35d61c';
+          umami.async = true;
+          document.head.appendChild(umami);
+        };
+        if ('requestIdleCallback' in window) window.requestIdleCallback(loadAnalytics, { timeout: 5000 });
+        else setTimeout(loadAnalytics, 1000);
+      }, { once: true });
+    </script>
   </body>
 </html>

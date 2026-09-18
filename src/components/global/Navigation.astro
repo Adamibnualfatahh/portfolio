@@ -3,27 +3,27 @@ const currentPath = Astro.url.pathname;
 const isActive = (path: string) =>
   path === "/" ? currentPath === "/" : currentPath.startsWith(path);
 ---
-<nav aria-label="Navigasi utama" class="mx-auto w-full border-y border-white bg-black lg:fixed lg:inset-x-0 lg:top-0 lg:z-50" x-data="{ open: false }">
+<nav id="site-navigation" aria-label="Navigasi utama" class="mx-auto w-full border-y border-white bg-black lg:fixed lg:inset-x-0 lg:top-0 lg:z-50">
   <div class="mx-auto bg-black w-full">
     <div class="mx-auto border-white border-x max-w-7xl flex flex-col lg:flex-row lg:items-center lg:justify-between w-full">
       
       <!-- Mobile Header: Logo + Toggle -->
       <div class="flex items-center justify-between w-full lg:w-auto px-4 py-4 md:px-8 lg:p-0 border-b lg:border-none border-white">
-        <a href="/" class="text-white text-xs font-display inline-flex items-center uppercase lg:px-8 lg:py-4">
+        <a href="/" aria-current={isActive("/") ? "page" : undefined} class="min-h-11 min-w-0 text-white text-[0.65rem] sm:text-xs font-display inline-flex items-center uppercase lg:px-8 lg:py-4">
           <span>Adam Ibnu Alfatah &nbsp; &rarr;</span>
         </a>
         
         <!-- Mobile Menu Button -->
-        <button @click="open = !open" :aria-expanded="open.toString()" aria-controls="primary-navigation" class="ml-auto p-2 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-carrot lg:hidden" aria-label="Buka menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              <path x-show="open" style="display: none;" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <button id="navigation-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" class="hidden ml-auto h-11 w-11 shrink-0 items-center justify-center text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-carrot lg:hidden" aria-label="Buka menu">
+          <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              <path class="close-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
 
       <!-- Links (Collapsible on mobile) -->
-      <div id="primary-navigation" :class="{'flex': open, 'hidden': !open}" class="hidden w-full flex-col border-white lg:ml-auto lg:flex lg:w-auto lg:flex-row">
+      <div id="primary-navigation" class="flex w-full flex-col border-white lg:ml-auto lg:w-auto lg:flex-row">
         <a
           href="/blogs"
           aria-current={isActive("/blogs") ? "page" : undefined}
@@ -37,10 +37,69 @@ const isActive = (path: string) =>
         <a
           href="/about"
           aria-current={isActive("/about") ? "page" : undefined}
-          class={`w-full border-white px-6 py-4 text-center font-display text-xs uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-white lg:w-auto lg:border-l ${isActive("/about") ? "bg-black text-white" : "bg-carrot text-black hover:text-white"}`}
+          class={`w-full border-white px-6 py-4 text-center font-display text-xs uppercase transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-white lg:w-auto lg:border-l ${isActive("/about") ? "bg-black text-white" : "bg-carrot text-black hover:bg-white"}`}
         >About</a>
       </div>
 
     </div>
   </div>
 </nav>
+<noscript>
+  <style is:inline>#primary-navigation { display: flex !important; }</style>
+</noscript>
+
+<style>
+  .close-icon,
+  [aria-expanded="true"] .menu-icon {
+    display: none;
+  }
+
+  [aria-expanded="true"] .close-icon {
+    display: block;
+  }
+
+  nav:not([data-menu-open="true"]) #primary-navigation {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    nav:not([data-menu-open="true"]) #primary-navigation {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const navigation = document.getElementById('site-navigation')!;
+  const toggle = document.getElementById('navigation-toggle')!;
+  const links = document.getElementById('primary-navigation')!;
+
+  function setMenuOpen(open: boolean) {
+    navigation.dataset.menuOpen = String(open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+  }
+
+  toggle.addEventListener('click', () => setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!navigation.contains(event.target as Node)) setMenuOpen(false);
+  });
+  links.addEventListener('click', () => setMenuOpen(false));
+  let viewportWidth = document.documentElement.clientWidth;
+  window.addEventListener('resize', () => {
+    const nextWidth = document.documentElement.clientWidth;
+    if (viewportWidth === nextWidth) return;
+    viewportWidth = nextWidth;
+    if (getComputedStyle(toggle).display !== 'none' && links.contains(document.activeElement)) toggle.focus();
+    setMenuOpen(false);
+  });
+
+  setMenuOpen(false);
+  toggle.classList.replace('hidden', 'flex');
+</script>

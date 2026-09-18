@@ -316,7 +316,9 @@ const independentProjects = [
 
     <div class="grid lg:grid-cols-2">
       {
-        professionalProjects.map((project, index) => (
+        professionalProjects.map((project, index) => {
+          const Preview = project.demo ? "a" : "div";
+          return (
           <article
             class:list={[
               "group flex min-h-full flex-col border-white bg-[#161616] transition-colors duration-300 hover:bg-[#1b1b1b]",
@@ -325,31 +327,32 @@ const independentProjects = [
               index === professionalProjects.length - 2 && "border-b lg:border-b-0",
             ]}
           >
-            <a
+            <Preview
               href={project.demo ?? undefined}
-              target="_blank"
-              rel="noreferrer"
+              target={project.demo ? "_blank" : undefined}
+              rel={project.demo ? "noreferrer" : undefined}
               class="relative block aspect-[16/10] overflow-hidden border-b border-white/20 bg-white/5"
-              aria-label={`Visit ${project.title} website`}
             >
               <Image
                 src={project.img}
                 alt={`${project.title} project preview`}
                 width={960}
                 height={600}
+                widths={[320, 480, 640, 960, 1280]}
+                sizes="(min-width: 1280px) 640px, (min-width: 1024px) 50vw, 100vw"
                 loading="lazy"
                 format="webp"
                 class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025] group-hover:opacity-90"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-              <span class="absolute left-4 top-4 border border-white/30 bg-black/80 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+              <span aria-hidden="true" class="absolute left-4 top-4 border border-white/30 bg-black/80 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-white backdrop-blur-sm">
                 {project.label}
               </span>
-              <span class="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border border-white bg-black text-lg text-white transition duration-300 group-hover:-translate-y-1 group-hover:bg-carrot">
+              {project.demo && <span class="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full border border-white bg-black text-lg text-white transition duration-300 group-hover:-translate-y-1 group-hover:bg-carrot group-hover:text-black">
                 <span class="sr-only">Open project</span>
                 <span aria-hidden="true">↗</span>
-              </span>
-            </a>
+              </span>}
+            </Preview>
 
             <div class="flex flex-1 flex-col p-6 md:p-8">
               <div class="mb-5 flex items-start justify-between gap-6">
@@ -390,14 +393,15 @@ const independentProjects = [
               )}
             </div>
           </article>
-        ))
+        );
+        })
       }
     </div>
   </div>
 </section>
 
 <section
-  class="border-b border-white bg-accent-500"
+  class="border-b border-white bg-black"
   aria-labelledby="independent-projects-title"
 >
   <div class="mx-auto max-w-7xl border-x border-white">
@@ -413,7 +417,7 @@ const independentProjects = [
           Independent Projects
         </h2>
       </div>
-      <p class="max-w-md text-sm leading-6 text-black/75 md:text-right">
+      <p class="max-w-md text-sm leading-6 text-white/80 md:text-right">
         Focused experiments, open-source tools, and product ideas built from
         curiosity.
       </p>
@@ -421,28 +425,31 @@ const independentProjects = [
 
     <div class="grid gap-px bg-white md:grid-cols-2 xl:grid-cols-3">
       {
-        independentProjects.map((project, index) => (
-          <article class="group flex min-h-full flex-col bg-accent-500 p-4 transition-colors duration-300 hover:bg-[#151515] md:p-6">
-            <a
+        independentProjects.map((project, index) => {
+          const Preview = project.demo || project.code ? "a" : "div";
+          return (
+          <article class="group flex min-h-full flex-col bg-black p-4 transition-colors duration-300 hover:bg-[#151515] md:p-6">
+            <Preview
               href={project.demo ?? project.code ?? undefined}
-              target="_blank"
-              rel="noreferrer"
+              target={project.demo || project.code ? "_blank" : undefined}
+              rel={project.demo || project.code ? "noreferrer" : undefined}
               class="relative block aspect-video overflow-hidden border border-white/20 bg-black"
-              aria-label={`View ${project.title}`}
             >
               <Image
                 src={project.img}
                 alt={`${project.title} project preview`}
                 width={720}
                 height={405}
+                widths={[320, 480, 720]}
+                sizes="(min-width: 1280px) 380px, (min-width: 768px) 50vw, 100vw"
                 loading="lazy"
                 format="webp"
                 class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04] group-hover:opacity-80"
               />
-              <span class="absolute left-3 top-3 border border-white/30 bg-black/80 px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+              <span aria-hidden="true" class="absolute left-3 top-3 border border-white/30 bg-black/80 px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-white backdrop-blur-sm">
                 {project.label}
               </span>
-            </a>
+            </Preview>
 
             <div class="flex flex-1 flex-col px-1 pb-1 pt-6">
               <div class="mb-4 flex items-start justify-between gap-4">
@@ -453,7 +460,7 @@ const independentProjects = [
                   /{String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <p class="mb-6 text-sm leading-6 text-black/75">
+              <p class="mb-6 text-sm leading-6 text-white/80">
                 {project.description}
               </p>
 
@@ -469,7 +476,7 @@ const independentProjects = [
                     <span aria-hidden="true">↗</span>
                   </a>
                 ) : (
-                  <span class="inline-flex items-center justify-center border border-white/10 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/40">
+                  <span class="inline-flex items-center justify-center border border-white/10 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/60">
                     Source private
                   </span>
                 )}
@@ -478,20 +485,21 @@ const independentProjects = [
                     href={project.demo}
                     target="_blank"
                     rel="noreferrer"
-                    class="inline-flex items-center justify-center gap-2 border border-carrot bg-carrot px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white hover:bg-white hover:text-black"
+                    class="inline-flex items-center justify-center gap-2 border border-carrot bg-carrot px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-black hover:bg-white hover:text-black"
                   >
                     Live site
                     <span aria-hidden="true">↗</span>
                   </a>
                 ) : (
-                  <span class="inline-flex cursor-not-allowed items-center justify-center border border-white/10 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/40">
+                  <span class="inline-flex cursor-not-allowed items-center justify-center border border-white/10 px-3 py-3 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-white/60">
                     No preview
                   </span>
                 )}
               </div>
             </div>
           </article>
-        ))
+        );
+        })
       }
     </div>
   </div>

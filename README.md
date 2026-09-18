@@ -1,31 +1,8 @@
 # Adam Ibnu Alfatah
 
-## Template Integrations
-- @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
-- @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
-- @astrojs/mdx - https://docs.astro.build/en/guides/markdown-content/
-- @astrojs/rss - https://docs.astro.build/en/guides/rss/
-- @astrojs/prism - https://docs.astro.build/en/reference/api-reference/#prism-
-- Astrolib SEO - https://github.com/onwidget/astrolib/tree/main/packages/seo
-## Template Structure
+Requires Node.js 22.12 or newer. Built as static HTML with Astro 7, Tailwind CSS 3 through PostCSS, and an XML sitemap. Vercel serves `dist/` with the security and caching headers in `vercel.json`.
 
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+Pages live in `src/pages/`, shared UI in `src/components/`, and article content in `src/content/blog/`. The content schema and loader are defined in `src/content.config.ts`. Images in `src/assets/` are optimized at build time; `public/` contains assets copied directly into the build.
 
 ## Commands
 
@@ -34,8 +11,30 @@ All commands are run from the root of the project, from a terminal:
 | Command                | Action                                           |
 | :--------------------- | :----------------------------------------------- |
 | `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
+| `npm run dev`          | Starts local dev server at `localhost:4321`       |
 | `npm run build`        | Build your production site to `./dist/`          |
+| `npm run check`        | Check Astro and TypeScript                      |
+| `npm test`             | Test the production build across three browsers |
 | `npm run preview`      | Preview your build locally, before deploying     |
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro --help` | Get help using the Astro CLI                     |
+
+## Responsive regression checks
+
+```sh
+npm install
+npx playwright install chromium firefox webkit
+npm run build
+npm run check
+npm test
+```
+
+Checks all 15 pages at 12 widths (320–1920 px) in Chromium, Firefox, and WebKit, plus touch and keyboard navigation, landscape, JavaScript fallback, blog filtering, code copying, audio controls, reduced motion, missing assets, and CSP errors. Third-party services are stubbed so these checks stay deterministic. Screenshots are written to `test-results/`.
+
+To preview the production build with its security headers:
+
+```sh
+node scripts/test-responsive.mjs --serve
+```
+
+Open `https://127.0.0.1:4323` and accept the temporary local test certificate. The test server uses OpenSSL to generate this certificate and reproduces HTTPS, gzip compression, caching headers, and the production security policy. Vercel-specific analytics are enabled when building on Vercel (`VERCEL=1`).

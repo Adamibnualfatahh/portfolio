@@ -4,30 +4,40 @@
 
 @layer base {
   :root {
-    font-family: 'Inter', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
   }
 
-  @supports (font-variation-settings: normal) {
-    :root {
-      font-family: 'Inter var', sans-serif;
-    }
+  h1, h2, h3, a, p, dd {
+    overflow-wrap: anywhere;
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid #ff5800;
+    outline-offset: 4px;
+  }
+
+  [hidden] {
+    display: none !important;
   }
 }
 
 @font-face {
   font-family: "Basement";
-  src: url("/fonts/BSBlack.eot");
-  src: url("/fonts/BSBlack.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/BSBlack.woff2") format("woff2"),
-    url("/fonts/BSBlack.woff") format("woff");
+  src: url("/fonts/BSBlack.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
   descent-override: 0%;
 }
 
 .gradient-grid {
-  background-image: radial-gradient(circle at center center, transparent 0%, rgba(255, 255, 255, 0) 99%), repeating-linear-gradient(0deg, rgba(205, 205, 205, 0.2) 0px, rgba(205, 205, 205, 0.2) 1px, transparent 1px, transparent 6px), repeating-linear-gradient(90deg, rgba(205, 205, 205, 0.2) 0px, rgba(205, 205, 205, 0.2) 1px, transparent 1px, transparent 6px), linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(rgba(205, 205, 205, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 205, 205, 0.2) 1px, transparent 1px);
+  background-size: 6px 6px;
 }
 
 /* Scrollbar */
