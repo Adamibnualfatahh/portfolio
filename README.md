@@ -42,5 +42,4 @@ Open `https://127.0.0.1:4323` and accept the temporary local test certificate. T
 # Adam Ibnu Alfatah — Portfolio
 
 Personal portfolio and blog of Adam Ibnu Alfatah, a backend engineer working with Go, Laravel, and Node.js.
-
-Live: https://www.adamibnu.my.id
+https://www.adamibnu.my.id
