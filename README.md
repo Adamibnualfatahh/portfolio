@@ -38,3 +38,9 @@ node scripts/test-responsive.mjs --serve
 ```
 
 Open `https://127.0.0.1:4323` and accept the temporary local test certificate. The test server uses OpenSSL to generate this certificate and reproduces HTTPS, gzip compression, caching headers, and the production security policy. Vercel-specific analytics are enabled when building on Vercel (`VERCEL=1`).
+
+# Adam Ibnu Alfatah — Portfolio
+
+Personal portfolio and blog of Adam Ibnu Alfatah, a backend engineer working with Go, Laravel, and Node.js.
+
+Live: https://www.adamibnu.my.id
